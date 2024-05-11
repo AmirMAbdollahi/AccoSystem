@@ -5,7 +5,12 @@ namespace AccoSystem.DataLayer.Context;
 
 public class UnitOfWork:IDisposable
 {
-    private AccoSystemDbContext context = new AccoSystemDbContext();
+    private AccoSystemDbContext _context;
+
+    public UnitOfWork(AccoSystemDbContext context)
+    {
+        _context = context;
+    }
 
     private ICustomerRepository _customerRepository;
 
@@ -15,7 +20,7 @@ public class UnitOfWork:IDisposable
         {
             if (_customerRepository == null)
             {
-                _customerRepository = new CustomerRepository(context);
+                _customerRepository = new CustomerRepository(_context);
             }
             return _customerRepository;
         }
@@ -23,6 +28,6 @@ public class UnitOfWork:IDisposable
 
     public void Dispose()
     {
-        context.Dispose();
+        _context.Dispose();
     }
 }
