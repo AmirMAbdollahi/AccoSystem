@@ -17,31 +17,63 @@ public class CustomerRepository:ICustomerRepository
 
     public Customer GetCustomerById(int customerId)
     {
-        throw new NotImplementedException();
+        return context.Customers.Find(customerId);
     }
 
     public bool InsertCustomer(Customer customer)
     {
-        throw new NotImplementedException();
+        try
+        {
+            context.Customers.Add(customer);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     public bool UpdateCustomer(Customer customer)
     {
-        throw new NotImplementedException();
+        try
+        {
+            context.Entry(customer).State = EntityState.Modified;
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     public bool DeleteCustomer(Customer customer)
     {
-        throw new NotImplementedException();
+        try
+        {
+            context.Entry(customer).State = EntityState.Deleted;
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     public bool DeleteCustomerById(int customerId)
     {
-        throw new NotImplementedException();
+        try
+        {
+            DeleteCustomer(GetCustomerById(customerId));
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     public void Save()
     {
-        throw new NotImplementedException();
+        context.SaveChanges();
     }
 }
