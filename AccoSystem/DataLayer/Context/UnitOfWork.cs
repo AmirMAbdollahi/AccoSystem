@@ -5,7 +5,7 @@ namespace AccoSystem.DataLayer.Context;
 
 public class UnitOfWork:IDisposable
 {
-    private MyDbContext context = new MyDbContext();
+    private AccoSystemDbContext context = new AccoSystemDbContext();
 
     private ICustomerRepository _customerRepository;
 

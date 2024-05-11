@@ -5,8 +5,8 @@ namespace AccoSystem.DataLayer.Services;
 
 public class CustomerRepository:ICustomerRepository
 {
-    private MyDbContext context;
-    public CustomerRepository(MyDbContext db)
+    private AccoSystemDbContext context;
+    public CustomerRepository(AccoSystemDbContext db)
     {
         this.context = db;
     }
