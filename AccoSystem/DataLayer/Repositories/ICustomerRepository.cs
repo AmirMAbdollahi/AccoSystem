@@ -4,6 +4,8 @@ public interface ICustomerRepository
 {
     List<Customer> GetAllCustomers();
 
+    IEnumerable<Customer> GetCustomerByFilter(string param);
+
     Customer GetCustomerById(int customerId);
 
     bool InsertCustomer(Customer customer);

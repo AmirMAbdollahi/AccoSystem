@@ -53,7 +53,13 @@ foreach (var customer in customers)
 }
 
 db.Dispose();*/
+
+
+
+/*
+it dosent work
 var accoSystemDB = new AccoSystemDbContext();
+*/
 
 var welcome = new WelcomeCommand();
 welcome.Execute();
@@ -111,7 +117,7 @@ switch (continueNum)
 void GetCustomerList()
 {
     
-    using (UnitOfWork unit=new UnitOfWork(accoSystemDB))
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
     {
         var customers = unit.CustomerRepository.GetAllCustomers();
         foreach (var customer in customers)
@@ -169,5 +175,16 @@ void UpdateCustomer()
 
 void SearchCustomer()
 {
-    
+    var searchCommand = new SearchCustomerCommand();
+    searchCommand.Execute();
+    var name = Console.ReadLine();
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var customerName = unit.CustomerRepository.GetCustomerByFilter(name);
+        Console.WriteLine("The customers you want ....");
+        foreach (var customer in customerName)
+        {
+            Console.WriteLine(customer.FullName+" - "+customer.Mobile+" - "+customer.Addrese+" - "+customer.Email);
+        }
+    }
 }

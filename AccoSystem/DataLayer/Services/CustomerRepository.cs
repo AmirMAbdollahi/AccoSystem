@@ -15,6 +15,11 @@ public class CustomerRepository:ICustomerRepository
         return context.Customers.ToList();
     }
 
+    public IEnumerable<Customer> GetCustomerByFilter(string param)
+    {
+        return context.Customers.Where(s => s.FullName.Contains(param)).ToList();
+    }
+
     public Customer GetCustomerById(int customerId)
     {
         return context.Customers.Find(customerId);
