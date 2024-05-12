@@ -40,7 +40,9 @@ db.SaveChanges();*/
 
 db.Save();*/
 
-var db = new UnitOfWork(new AccoSystemDbContext());
+var acsDB = new AccoSystemDbContext();
+var db = new UnitOfWork(acsDB);
+var db2 = new UnitOfWork(acsDB);
 
 var customers = db.CustomerRepository.GetAllCustomers();
 
