@@ -1,4 +1,5 @@
 ﻿using System.Collections.Frozen;
+using AccoSystem.Commands;
 using AccoSystem.DataLayer;
 using AccoSystem.DataLayer.Context;
 using AccoSystem.DataLayer.Services;
@@ -40,7 +41,7 @@ db.SaveChanges();*/
 
 db.Save();*/
 
-var acsDB = new AccoSystemDbContext();
+/*var acsDB = new AccoSystemDbContext();
 var db = new UnitOfWork(acsDB);
 var db2 = new UnitOfWork(acsDB);
 
@@ -51,5 +52,122 @@ foreach (var customer in customers)
     Console.WriteLine(customer.FullName+" "+customer.Addrese+" "+customer.Email+" "+customer.Mobile);
 }
 
-db.Dispose();
+db.Dispose();*/
+var accoSystemDB = new AccoSystemDbContext();
 
+var welcome = new WelcomeCommand();
+welcome.Execute();
+
+var main = new MainCommand();
+main.Execute();
+
+var continueCom = new ContinueCommand();
+continueCom.Execute();
+
+var continueNum = Convert.ToInt32(Console.ReadLine());
+
+switch (continueNum)
+{
+    case 1:
+        Console.WriteLine("Your customers are :");
+        GetCustomerList();
+        var cusList = new CustomerListCommand();
+        cusList.Execute();
+        var num = Convert.ToInt32(Console.ReadLine());
+        switch (num)
+        {
+            case 1:
+                NewCustomer();
+                break;
+            case 2:
+                EditeCustomer();
+                break;
+            case 3:
+                DeleteCustomer();
+                break;
+            case 4:
+                UpdateCustomer();
+                break;
+            case 5:
+                SearchCustomer();
+                break;
+            default:
+                break;
+        }
+        break;
+    case 2:
+        break;
+    case 3:
+        break;
+    case 4:
+        break;
+    default:
+        var wrongNum = new WrongNumberCommand();
+        wrongNum.Execute();
+        break;
+}
+
+
+void GetCustomerList()
+{
+    
+    using (UnitOfWork unit=new UnitOfWork(accoSystemDB))
+    {
+        var customers = unit.CustomerRepository.GetAllCustomers();
+        foreach (var customer in customers)
+        {
+            Console.WriteLine(customer.FullName+" - "+customer.Mobile+" - "+customer.Addrese+" - "+customer.Email);
+        }
+    }
+}
+
+void NewCustomer()
+{
+    var newCus = new NewCustomerCommand();
+    newCus.Execute();
+    
+    newCus.newFullName();
+    var fullName = Console.ReadLine();
+    
+    newCus.newMobile();
+    var mobile = Console.ReadLine();
+    
+    newCus.newAddrese();
+    var addrese = Console.ReadLine();
+    
+    newCus.newEmail();
+    var email = Console.ReadLine();
+    
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var customer = unit.CustomerRepository.InsertCustomer(new Customer()
+        {
+            FullName = fullName,
+            Mobile = mobile,
+            Addrese = addrese,
+            Email = email
+        });
+        unit.CustomerRepository.Save();
+    }
+    newCus.finish();
+}
+
+void EditeCustomer()
+{
+    
+}
+
+void DeleteCustomer()
+{
+    
+}
+
+void UpdateCustomer()
+{
+    
+}
+
+void SearchCustomer()
+{
+    
+}
