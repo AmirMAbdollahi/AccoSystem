@@ -116,7 +116,6 @@ switch (continueNum)
 
 void GetCustomerList()
 {
-    
     using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
     {
         var customers = unit.CustomerRepository.GetAllCustomers();
@@ -165,7 +164,27 @@ void EditeCustomer()
 
 void DeleteCustomer()
 {
-    
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var deleteCustomer = new DeleteCustomerCommand();
+        deleteCustomer.Execute();
+        var customers = unit.CustomerRepository.GetAllCustomers();
+        for (int i = 0 ; i < customers.Count; i++)
+        {
+            Console.WriteLine($"{i}: "+customers[i].FullName+" - "+customers[i].Mobile+" - "+customers[i].Addrese+" - "+customers[i].Email);
+        }
+        deleteCustomer.CustomerIndex();
+        var customerIndex = Convert.ToInt32(Console.ReadLine());
+        for (int y = 0; y < customers.Count ; y++)
+        {
+            if (customerIndex == y)
+            {
+                var customerDeleted = unit.CustomerRepository.DeleteCustomer(customers[y]);
+                unit.Save();
+                deleteCustomer.finish();
+            }
+        }
+    }
 }
 
 void UpdateCustomer()
