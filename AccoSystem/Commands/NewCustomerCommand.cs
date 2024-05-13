@@ -2,11 +2,6 @@ namespace AccoSystem.Commands;
 
 public class NewCustomerCommand:ICommand
 {
-    public string _fullName { get; set; }
-    public string _email { get; set; }
-    public string _mobile { get; set; }
-    public string _addrese { get; set; }
-    
     public void Execute()
     {
         Console.WriteLine("You want to create a new customer...");
@@ -15,19 +10,19 @@ public class NewCustomerCommand:ICommand
 
     public void newFullName()
     {
-        Console.WriteLine($"customer's full name is : {_fullName}");
+        Console.WriteLine("customer's full name is : ");
     }
     public void newEmail()
     {
-        Console.WriteLine($"customer's email is : {_email}");
+        Console.WriteLine("customer's email is : ");
     }
     public void newMobile()
     {
-        Console.WriteLine($"customer's mobile is : {_mobile}");
+        Console.WriteLine("customer's mobile is : ");
     }
     public void newAddrese()
     {
-        Console.WriteLine($"customer's addrese is : {_addrese}");
+        Console.WriteLine("customer's addrese is : ");
     }
 
     public void finish()

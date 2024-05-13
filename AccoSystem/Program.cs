@@ -4,6 +4,7 @@ using AccoSystem.DataLayer;
 using AccoSystem.DataLayer.Context;
 using AccoSystem.DataLayer.Services;
 using Microsoft.EntityFrameworkCore.Query.Internal;
+using Microsoft.IdentityModel.Tokens;
 
 //var db=new CustomerRepository(new MyDbContext());
 //var customers = db.Customers.ToList();
@@ -159,7 +160,64 @@ void NewCustomer()
 
 void EditeCustomer()
 {
-    
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var editeCustomer = new EditeCustomerCommand();
+        editeCustomer.Execute();
+        //Duplicate code
+        var customers = unit.CustomerRepository.GetAllCustomers();
+        for (int i = 0; i < customers.Count; i++)
+        {
+            Console.WriteLine($"{i}: "+customers[i].FullName+" - "+customers[i].Mobile+" - "+customers[i].Addrese+" - "+customers[i].Email);
+        }
+        editeCustomer.CustomerIndex();
+        var customerIndex = Convert.ToInt32(Console.ReadLine());
+        for (int i = 0; i < customers.Count(); i++)
+        {
+            if (customerIndex == i)
+            {
+                
+                editeCustomer.newFullName();
+                var newFullName = Console.ReadLine();
+                if (newFullName.IsNullOrEmpty())
+                {
+                    newFullName=customers[i].FullName;
+                }
+                
+                editeCustomer.newMobile();
+                var newMobile = Console.ReadLine();
+                if (newMobile.IsNullOrEmpty())
+                {
+                    newMobile = customers[i].Mobile;
+                }
+
+                editeCustomer.newAddrese();
+                var newAddrese = Console.ReadLine();
+                if (newAddrese.IsNullOrEmpty())
+                {
+                    newAddrese = customers[i].Addrese;
+                }
+                
+                editeCustomer.newEmail();
+                var newEmail = Console.ReadLine();
+                if (newEmail.IsNullOrEmpty())
+                {
+                    newEmail = customers[i].Email;
+                }
+                
+                var customerEdited = unit.CustomerRepository.UpdateCustomer(new Customer()
+                {
+                    CustomerId = customers[i].CustomerId,
+                    FullName = newFullName,
+                    Mobile = newMobile,
+                    Addrese = newAddrese,
+                    Email = newEmail
+                });
+                unit.Save();
+                editeCustomer.finish();
+            }
+        }
+    }
 }
 
 void DeleteCustomer()

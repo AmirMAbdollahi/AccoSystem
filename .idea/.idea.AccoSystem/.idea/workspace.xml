@@ -8,8 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ed527e4-950e-48a2-8a4a-0fc372a9c5fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AccoSystem/Commands/DeleteCustomerCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AccoSystem/Commands/EditeCustomerCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/NewCustomerCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/NewCustomerCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Services/CustomerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Services/CustomerRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.exe" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.exe" afterDir="false" />
@@ -50,7 +52,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.AccoSystem.executor": "Run",
+    ".NET Project.AccoSystem.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -105,7 +107,8 @@
       <workItem from="1715445267738" duration="4099000" />
       <workItem from="1715464494025" duration="5002000" />
       <workItem from="1715528485264" duration="14307000" />
-      <workItem from="1715585209141" duration="5696000" />
+      <workItem from="1715585209141" duration="6522000" />
+      <workItem from="1715617420875" duration="6729000" />
     </task>
     <servers />
   </component>
@@ -114,5 +117,115 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
+          <line>182</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="182" containingFunctionPresentation="Local function 'EditeCustomer'">
+            <startOffsets>
+              <option value="4397" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4431" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
+          <line>179</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="179" containingFunctionPresentation="Local function 'EditeCustomer'">
+            <startOffsets>
+              <option value="4280" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4317" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
+          <line>187</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="187" containingFunctionPresentation="Local function 'EditeCustomer'">
+            <startOffsets>
+              <option value="4578" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4600" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
+          <line>189</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="189" containingFunctionPresentation="Local function 'EditeCustomer'">
+            <startOffsets>
+              <option value="4639" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4671" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
+          <line>194</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="194" containingFunctionPresentation="Local function 'EditeCustomer'">
+            <startOffsets>
+              <option value="4804" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4827" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
+          <line>196</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="196" containingFunctionPresentation="Local function 'EditeCustomer'">
+            <startOffsets>
+              <option value="4866" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4900" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
+          <line>201</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="201" containingFunctionPresentation="Local function 'EditeCustomer'">
+            <startOffsets>
+              <option value="5045" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5066" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
+          <line>203</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="203" containingFunctionPresentation="Local function 'EditeCustomer'">
+            <startOffsets>
+              <option value="5105" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5135" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

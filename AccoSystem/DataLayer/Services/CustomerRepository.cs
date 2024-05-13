@@ -42,6 +42,12 @@ public class CustomerRepository:ICustomerRepository
     {
         try
         {
+            var local = context.Set<Customer>().Local
+                .FirstOrDefault(f => f.CustomerId == customer.CustomerId);
+            if (local != null)
+            {
+                context.Entry(local).State = EntityState.Detached;
+            }
             context.Entry(customer).State = EntityState.Modified;
             return true;
         }
