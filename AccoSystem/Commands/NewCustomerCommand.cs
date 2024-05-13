@@ -8,24 +8,24 @@ public class NewCustomerCommand:ICommand
         Console.WriteLine("Please fill in the requested items carefully.");
     }
 
-    public void newFullName()
+    public void NewFullName()
     {
         Console.WriteLine("customer's full name is : ");
     }
-    public void newEmail()
+    public void NewEmail()
     {
         Console.WriteLine("customer's email is : ");
     }
-    public void newMobile()
+    public void NewMobile()
     {
         Console.WriteLine("customer's mobile is : ");
     }
-    public void newAddrese()
+    public void NewAddrese()
     {
         Console.WriteLine("customer's addrese is : ");
     }
 
-    public void finish()
+    public void Finish()
     {
         Console.WriteLine("Your customer added...");
     }

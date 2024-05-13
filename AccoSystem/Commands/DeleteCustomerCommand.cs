@@ -14,7 +14,7 @@ public class DeleteCustomerCommand:ICommand
         Console.WriteLine("Please enter the number of the customer you want to delete ...");
     }
 
-    public void finish()
+    public void Finish()
     {
         Console.WriteLine("The customer you wanted was deleted.");
     }

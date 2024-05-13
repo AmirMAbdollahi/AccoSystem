@@ -87,7 +87,7 @@ switch (continueNum)
                 NewCustomer();
                 break;
             case 2:
-                EditeCustomer();
+                EditCustomer();
                 break;
             case 3:
                 DeleteCustomer();
@@ -132,16 +132,16 @@ void NewCustomer()
     var newCus = new NewCustomerCommand();
     newCus.Execute();
     
-    newCus.newFullName();
+    newCus.NewFullName();
     var fullName = Console.ReadLine();
     
-    newCus.newMobile();
+    newCus.NewMobile();
     var mobile = Console.ReadLine();
     
-    newCus.newAddrese();
+    newCus.NewAddrese();
     var addrese = Console.ReadLine();
     
-    newCus.newEmail();
+    newCus.NewEmail();
     var email = Console.ReadLine();
     
     using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
@@ -155,10 +155,10 @@ void NewCustomer()
         });
         unit.Save();
     }
-    newCus.finish();
+    newCus.Finish();
 }
 
-void EditeCustomer()
+void EditCustomer()
 {
     using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
     {
@@ -177,28 +177,28 @@ void EditeCustomer()
             if (customerIndex == i)
             {
                 
-                editeCustomer.newFullName();
+                editeCustomer.NewFullName();
                 var newFullName = Console.ReadLine();
                 if (newFullName.IsNullOrEmpty())
                 {
                     newFullName=customers[i].FullName;
                 }
                 
-                editeCustomer.newMobile();
+                editeCustomer.NewMobile();
                 var newMobile = Console.ReadLine();
                 if (newMobile.IsNullOrEmpty())
                 {
                     newMobile = customers[i].Mobile;
                 }
 
-                editeCustomer.newAddrese();
+                editeCustomer.NewAddrese();
                 var newAddrese = Console.ReadLine();
                 if (newAddrese.IsNullOrEmpty())
                 {
                     newAddrese = customers[i].Addrese;
                 }
                 
-                editeCustomer.newEmail();
+                editeCustomer.NewEmail();
                 var newEmail = Console.ReadLine();
                 if (newEmail.IsNullOrEmpty())
                 {
@@ -214,9 +214,17 @@ void EditeCustomer()
                     Email = newEmail
                 });
                 unit.Save();
-                editeCustomer.finish();
+                editeCustomer.Finish();
             }
         }
+    }
+}
+
+void DisplayCustomers(List<Customer> customers)
+{
+    for (int i = 0 ; i < customers.Count; i++)
+    {
+        Console.WriteLine($"{i}: "+customers[i].FullName+" - "+customers[i].Mobile+" - "+customers[i].Addrese+" - "+customers[i].Email);
     }
 }
 
@@ -227,10 +235,7 @@ void DeleteCustomer()
         var deleteCustomer = new DeleteCustomerCommand();
         deleteCustomer.Execute();
         var customers = unit.CustomerRepository.GetAllCustomers();
-        for (int i = 0 ; i < customers.Count; i++)
-        {
-            Console.WriteLine($"{i}: "+customers[i].FullName+" - "+customers[i].Mobile+" - "+customers[i].Addrese+" - "+customers[i].Email);
-        }
+        DisplayCustomers(customers);
         deleteCustomer.CustomerIndex();
         var customerIndex = Convert.ToInt32(Console.ReadLine());
         for (int y = 0; y < customers.Count ; y++)
@@ -239,7 +244,7 @@ void DeleteCustomer()
             {
                 var customerDeleted = unit.CustomerRepository.DeleteCustomer(customers[y]);
                 unit.Save();
-                deleteCustomer.finish();
+                deleteCustomer.Finish();
             }
         }
     }
@@ -257,7 +262,7 @@ void SearchCustomer()
     var name = Console.ReadLine();
     using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
     {
-        var customerName = unit.CustomerRepository.GetCustomerByFilter(name);
+        var customerName = unit.CustomerRepository.GetCustomerByFilter(name).ToList();
         Console.WriteLine("The customers you want ....");
         foreach (var customer in customerName)
         {
