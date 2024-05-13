@@ -153,7 +153,7 @@ void NewCustomer()
             Addrese = addrese,
             Email = email
         });
-        unit.CustomerRepository.Save();
+        unit.Save();
     }
     newCus.finish();
 }

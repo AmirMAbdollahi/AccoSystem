@@ -76,9 +76,5 @@ public class CustomerRepository:ICustomerRepository
             return false;
         }
     }
-
-    public void Save()
-    {
-        context.SaveChanges();
-    }
+    
 }

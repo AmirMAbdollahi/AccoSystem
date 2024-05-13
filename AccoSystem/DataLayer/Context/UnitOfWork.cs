@@ -26,6 +26,10 @@ public class UnitOfWork:IDisposable
         }
     }
 
+    public void Save()
+    {
+        _context.SaveChanges();
+    }
     public void Dispose()
     {
         _context.Dispose();

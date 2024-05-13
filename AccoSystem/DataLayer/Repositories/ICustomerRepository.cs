@@ -16,5 +16,4 @@ public interface ICustomerRepository
 
     bool DeleteCustomerById(int customerId);
 
-    void Save();
 }
