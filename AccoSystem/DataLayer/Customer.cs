@@ -14,4 +14,6 @@ public partial class Customer
     public string? Addrese { get; set; }
 
     public int CustomerId { get; set; }
+
+    public virtual ICollection<Accounting> Accountings { get; set; } = new List<Accounting>();
 }
