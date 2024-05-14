@@ -8,13 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ed527e4-950e-48a2-8a4a-0fc372a9c5fa" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Services/AllRepo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/CustomerListCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/CustomerListCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/DeleteCustomerCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/DeleteCustomerCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/EditeCustomerCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/EditeCustomerCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/NewCustomerCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/NewCustomerCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Services/CustomerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Services/CustomerRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.exe" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.pdb" afterDir="false" />
@@ -52,7 +47,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.AccoSystem.executor": "Run",
+    ".NET Project.AccoSystem.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -108,7 +103,8 @@
       <workItem from="1715464494025" duration="5002000" />
       <workItem from="1715528485264" duration="14307000" />
       <workItem from="1715585209141" duration="6522000" />
-      <workItem from="1715617420875" duration="13586000" />
+      <workItem from="1715617420875" duration="14142000" />
+      <workItem from="1715677746220" duration="5788000" />
     </task>
     <servers />
   </component>
@@ -117,5 +113,37 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/DataLayer/Context/UnitOfWork.cs</url>
+          <line>22</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\DataLayer\Context\UnitOfWork.cs" initialLine="22" containingFunctionPresentation="Property 'CustomerRepository'">
+            <startOffsets>
+              <option value="500" />
+            </startOffsets>
+            <endOffsets>
+              <option value="555" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/DataLayer/Context/UnitOfWork.cs</url>
+          <line>24</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\DataLayer\Context\UnitOfWork.cs" initialLine="24" containingFunctionPresentation="Property 'CustomerRepository'">
+            <startOffsets>
+              <option value="582" />
+            </startOffsets>
+            <endOffsets>
+              <option value="609" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
