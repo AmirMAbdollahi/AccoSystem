@@ -1,4 +1,5 @@
 using AccoSystem.DataLayer.Repositories;
+using AccoSystem.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace AccoSystem.DataLayer.Services;
@@ -81,6 +82,13 @@ public class CustomerRepository:ICustomerRepository
         {
             return false;
         }
+    }
+    public List<ListCustomerViewModel> GetCustomerFullName()
+    {
+        return context.Customers.Select(c => new ListCustomerViewModel()
+        {
+            FullName = c.FullName
+        }).ToList();
     }
     
 }

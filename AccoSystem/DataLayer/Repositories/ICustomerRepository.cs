@@ -1,3 +1,5 @@
+using AccoSystem.ViewModels;
+
 namespace AccoSystem.DataLayer.Repositories;
 
 public interface ICustomerRepository
@@ -15,5 +17,7 @@ public interface ICustomerRepository
     bool DeleteCustomer(Customer customer);
 
     bool DeleteCustomerById(int customerId);
+
+    List<ListCustomerViewModel> GetCustomerFullName();
 
 }

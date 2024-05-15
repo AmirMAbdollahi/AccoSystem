@@ -1,8 +1,10 @@
 ﻿using System.Collections.Frozen;
+using System.Threading.Channels;
 using AccoSystem.Commands;
 using AccoSystem.DataLayer;
 using AccoSystem.DataLayer.Context;
 using AccoSystem.DataLayer.Services;
+using AccoSystem.ViewModels;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using Microsoft.IdentityModel.Tokens;
 
@@ -103,6 +105,9 @@ switch (continueNum)
         }
         break;
     case 2:
+        var transaction = new NewTransaction();
+        transaction.Execute();
+        Transactions();
         break;
     case 3:
         break;
@@ -114,6 +119,15 @@ switch (continueNum)
         break;
 }
 
+void Transactions()
+{
+    var customersName=GetCustomersName();
+    Console.WriteLine("Your customer's Name are :");
+    foreach (var customerName in customersName)
+    {
+        Console.WriteLine(customerName);
+    }
+}
 
 void GetCustomerList()
 {
@@ -268,5 +282,19 @@ void SearchCustomer()
         {
             Console.WriteLine(customer.FullName+" - "+customer.Mobile+" - "+customer.Addrese+" - "+customer.Email);
         }
+    }
+}
+
+List<string> GetCustomersName()
+{
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var customersNameViewModel=unit.CustomerRepository.GetCustomerFullName();
+        List<string> customersName=new List<string>();
+        for (int i = 0; i < customersNameViewModel.Count; i++)
+        {
+            customersName.Add(customersNameViewModel[i].FullName);
+        }
+        return customersName;
     }
 }
