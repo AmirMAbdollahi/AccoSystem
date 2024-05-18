@@ -8,17 +8,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ed527e4-950e-48a2-8a4a-0fc372a9c5fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AccoSystem/Commands/NewTransaction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AccoSystem/ViewModels/ListCustomerViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/AccoSystem.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/AccoSystem.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/MainCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/MainCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/NewTransaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/NewTransaction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Context/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Context/UnitOfWork.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Repositories/ICustomerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Repositories/ICustomerRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Services/CustomerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Services/CustomerRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/ViewModels/ListCustomerViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/ViewModels/ListCustomerViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.exe" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/AccoSystem.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/AccoSystem.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.csproj.CoreCompileInputs.cache" afterDir="false" />
@@ -28,7 +29,11 @@
       <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/apphost.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/ref/AccoSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/ref/AccoSystem.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/refint/AccoSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/refint/AccoSystem.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +70,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CSharpCodeCleanupOptionsPageProvider",
+    "settings.editor.selected.configurable": "advanced.settings",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -115,7 +120,8 @@
       <workItem from="1715617420875" duration="14142000" />
       <workItem from="1715677746220" duration="5901000" />
       <workItem from="1715703453135" duration="2056000" />
-      <workItem from="1715791488069" duration="5192000" />
+      <workItem from="1715791488069" duration="5569000" />
+      <workItem from="1716052902441" duration="8566000" />
     </task>
     <servers />
   </component>
@@ -124,5 +130,80 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
+          <line>173</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="173" containingFunctionPresentation="Local function 'GetCustomerId'">
+            <startOffsets>
+              <option value="4149" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4171" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
+          <line>176</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="176" containingFunctionPresentation="Local function 'GetCustomerId'">
+            <startOffsets>
+              <option value="4192" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4202" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
+          <line>155</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="155" containingFunctionPresentation="Local function 'GetTypeId'">
+            <startOffsets>
+              <option value="3612" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3626" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
+          <line>133</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="133" containingFunctionPresentation="Local function 'Transactions'">
+            <startOffsets>
+              <option value="3002" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3263" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
+          <line>144</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="144" containingFunctionPresentation="Local function 'Transactions'">
+            <startOffsets>
+              <option value="3275" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3330" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

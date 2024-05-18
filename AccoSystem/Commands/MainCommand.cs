@@ -7,6 +7,5 @@ public class MainCommand:ICommand
         Console.WriteLine("1. Customer list ");
         Console.WriteLine("2. New Transaction");
         Console.WriteLine("3. 3");
-        Console.WriteLine("4. 4");
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Frozen;
+using System.ComponentModel;
 using System.Threading.Channels;
 using AccoSystem.Commands;
 using AccoSystem.DataLayer;
@@ -105,8 +106,6 @@ switch (continueNum)
         }
         break;
     case 2:
-        var transaction = new NewTransaction();
-        transaction.Execute();
         Transactions();
         break;
     case 3:
@@ -121,12 +120,61 @@ switch (continueNum)
 
 void Transactions()
 {
+    var transaction = new NewTransaction();
+    transaction.Execute();
+    var customerSelected=GetCustomerId();
+    var typeId = GetTypeId();
+    transaction.NewAmount();
+    int amount = Convert.ToInt32(Console.ReadLine());
+    transaction.NewDescription();
+    string? description = Console.ReadLine();
+    
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        unit.AccountingRepository.Insert(new Accounting()
+        {
+            CustomerId = customerSelected,
+            Amount = amount,
+            TypeId = typeId,
+            DateTime = DateTime.Now,
+            Description = description,
+            
+        });
+    }
+
+    if (customerSelected == -1 || typeId!=1 || typeId != 2)
+    {
+        Console.WriteLine("You doesn't select a customer and Correct typing. your transaction was not registered.");
+    }
+}
+
+int GetTypeId()
+{
+    var transaction = new NewTransaction();
+    transaction.NewTypeId();
+    int typeId = Convert.ToInt32(Console.ReadLine());
+    return typeId;
+}
+
+int GetCustomerId()
+{
     var customersName=GetCustomersName();
     Console.WriteLine("Your customer's Name are :");
     foreach (var customerName in customersName)
     {
         Console.WriteLine(customerName);
     }
+    Console.WriteLine("Please select a customer for new transaction... ");
+    var customersId=GetCustomersId();
+    int customerSelected = Convert.ToInt32(Console.ReadLine());
+    for (int i = 0; i < customersId.Count; i++)
+    {
+        if (customerSelected == customersId[i])
+        {
+            return customersId[i];
+        }
+    }
+    return -1;
 }
 
 void GetCustomerList()
@@ -285,16 +333,29 @@ void SearchCustomer()
     }
 }
 
-List<string> GetCustomersName()
+List<string?> GetCustomersName()
 {
     using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
     {
-        var customersNameViewModel=unit.CustomerRepository.GetCustomerFullName();
-        List<string> customersName=new List<string>();
+        var customersNameViewModel=unit.CustomerRepository.GetCustomerForTransaction();
+        List<string?> customersName=new List<string?>();
         for (int i = 0; i < customersNameViewModel.Count; i++)
         {
-            customersName.Add(customersNameViewModel[i].FullName);
+            customersName.Add(i+"- "+customersNameViewModel[i].FullName);
         }
         return customersName;
+    }
+}
+List<int> GetCustomersId()
+{
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var customersNameViewModel=unit.CustomerRepository.GetCustomerForTransaction();
+        List<int> customersId=new List<int>();
+        for (int i = 0; i < customersNameViewModel.Count; i++)
+        {
+            customersId.Add(customersNameViewModel[i].Id);
+        }
+        return customersId;
     }
 }

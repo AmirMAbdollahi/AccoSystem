@@ -26,6 +26,22 @@ public class UnitOfWork:IDisposable
         }
     }
 
+    private AllRepo<Accounting> _accountingRepository;
+
+    public AllRepo<Accounting> AccountingRepository
+    {
+        get {
+            if (_accountingRepository==null)
+            {
+                _accountingRepository = new AllRepo<Accounting>(_context);
+            }
+
+            return _accountingRepository;
+        }
+    }
+
+
+
     public void Save()
     {
         _context.SaveChanges();

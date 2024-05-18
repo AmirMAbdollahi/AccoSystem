@@ -83,11 +83,12 @@ public class CustomerRepository:ICustomerRepository
             return false;
         }
     }
-    public List<ListCustomerViewModel> GetCustomerFullName()
+    public List<ListCustomerViewModel> GetCustomerForTransaction()
     {
         return context.Customers.Select(c => new ListCustomerViewModel()
         {
-            FullName = c.FullName
+            FullName = c.FullName,
+            Id = c.CustomerId
         }).ToList();
     }
     

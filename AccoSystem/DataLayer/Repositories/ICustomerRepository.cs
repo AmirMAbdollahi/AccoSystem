@@ -18,6 +18,6 @@ public interface ICustomerRepository
 
     bool DeleteCustomerById(int customerId);
 
-    List<ListCustomerViewModel> GetCustomerFullName();
+    List<ListCustomerViewModel> GetCustomerForTransaction();
 
 }
