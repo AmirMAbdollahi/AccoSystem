@@ -140,11 +140,16 @@ void Transactions()
             Description = description,
             
         });
-    }
-
-    if (customerSelected == -1 || typeId!=1 || typeId != 2)
-    {
-        Console.WriteLine("You doesn't select a customer and Correct typing. your transaction was not registered.");
+        
+        if (customerSelected == -1 || typeId != 1 && typeId != 2)
+        {
+            Console.WriteLine("You doesn't select a customer and Correct typing. your transaction was not registered.");
+        }
+        else
+        {
+            unit.Save();
+            transaction.Finish();
+        }
     }
 }
 
@@ -341,7 +346,7 @@ List<string?> GetCustomersName()
         List<string?> customersName=new List<string?>();
         for (int i = 0; i < customersNameViewModel.Count; i++)
         {
-            customersName.Add(i+"- "+customersNameViewModel[i].FullName);
+            customersName.Add(customersNameViewModel[i].Id+"- "+customersNameViewModel[i].FullName);
         }
         return customersName;
     }

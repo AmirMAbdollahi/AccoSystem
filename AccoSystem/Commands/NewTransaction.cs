@@ -21,4 +21,9 @@ public class NewTransaction:ICommand
         Console.WriteLine("1 is income");
         Console.WriteLine("2 is const");
     }
+
+    public void Finish()
+    {
+        Console.WriteLine("You added a new transaction.");
+    }
 }
