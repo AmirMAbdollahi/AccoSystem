@@ -51,7 +51,31 @@ switch (continueNum)
         }
         break;
     case 2:
-        Transactions();
+        Console.WriteLine("Your transactions are :");
+        GetTransaction();
+        var trnList = new TransactionsListCommand();
+        trnList.Execute();
+        var number = Convert.ToInt32(Console.ReadLine());
+        switch (number)
+        {
+            case 1:
+                Transactions();
+                break;
+            case 2:
+                EditCustomer();
+                break;
+            case 3:
+                DeleteCustomer();
+                break;
+            case 4:
+                UpdateCustomer();
+                break;
+            case 5:
+                SearchCustomer();
+                break;
+            default:
+                break;
+        }
         break;
     case 3:
         InComeReport();
@@ -76,7 +100,8 @@ void CostReport()
 }
 
 void GetReport(int type)
-{    var report = new ReportCommand();
+{   
+    var report = new ReportCommand();
     report.Execute();
     using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
     {
@@ -91,6 +116,20 @@ void GetReport(int type)
             }
             Console.WriteLine("Name is : " + name + " - Amount is : " + accounting.Amount + " - Date is : " +
                               accounting.DateTime.ToShamsi() + " - Description is : "+description);
+        }
+    }
+}
+
+void GetTransaction()
+{
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var transactions=unit.AccountingRepository.Get().ToList();
+        foreach (var transaction in transactions)
+        {
+            string name = unit.CustomerRepository.GetCustomerNameById(transaction.CustomerId);
+            Console.WriteLine(name + " - " + transaction.Amount + " - " +
+                              transaction.DateTime.ToShamsi() + " - "+transaction.Description);
         }
     }
 }
@@ -140,13 +179,8 @@ int GetTypeId()
 
 int GetCustomerId()
 {
-    var customersName=GetCustomersName();
-    Console.WriteLine("Your customer's Name are :");
-    foreach (var customerName in customersName)
-    {
-        Console.WriteLine(customerName);
-    }
-    Console.WriteLine("Please select a customer for new transaction... ");
+    GetCustomersName();
+    Console.WriteLine("Please select a customer id for new transaction... ");
     var customersId=GetCustomersId();
     int customerSelected = Convert.ToInt32(Console.ReadLine());
     for (int i = 0; i < customersId.Count; i++)
@@ -315,17 +349,16 @@ void SearchCustomer()
     }
 }
 
-List<string?> GetCustomersName()
+void GetCustomersName()
 {
+    Console.WriteLine("Your customer's Name are :");
     using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
     {
         var customersNameViewModel=unit.CustomerRepository.GetCustomerForTransaction();
-        List<string?> customersName=new List<string?>();
-        for (int i = 0; i < customersNameViewModel.Count; i++)
+        foreach (var customerName in customersNameViewModel)
         {
-            customersName.Add(customersNameViewModel[i].Id+"- "+customersNameViewModel[i].FullName);
+            Console.WriteLine(customerName.Id+"- "+customerName.FullName);
         }
-        return customersName;
     }
 }
 List<int> GetCustomersId()
