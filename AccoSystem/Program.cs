@@ -5,65 +5,10 @@ using AccoSystem.Commands;
 using AccoSystem.DataLayer;
 using AccoSystem.DataLayer.Context;
 using AccoSystem.DataLayer.Services;
+using AccoSystem.Utility;
 using AccoSystem.ViewModels;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using Microsoft.IdentityModel.Tokens;
-
-//var db=new CustomerRepository(new MyDbContext());
-//var customers = db.Customers.ToList();
-
-// foreach (var customer in customers)
-// {
-//     Console.WriteLine(customer.FullName +" "+ customer.Addrese);
-// }
-
-/*db.Customers.Add(new Customer()
-{
-    Addrese = "lator",
-    Email = "sasf@gmail.com",
-    FullName = "sadfsfsdf",
-    Mobile = "46545454",
-});
-
-db.SaveChanges();*/
-
-/*var customer=new Customer()
-{
-    FullName = "amir",
-    Addrese = "kashan",
-    Email = "amir@gmail.com",
-    Mobile = "09130304809"
-};*/
-
-/*db.InsertCustomer(new Customer()
-{
-    FullName = "sobhan",
-    Addrese = "tabrez",
-    Email = "sobhan@gmail.com",
-    Mobile = "09130456789"
-});
-
-db.Save();*/
-
-/*var acsDB = new AccoSystemDbContext();
-var db = new UnitOfWork(acsDB);
-var db2 = new UnitOfWork(acsDB);
-
-var customers = db.CustomerRepository.GetAllCustomers();
-
-foreach (var customer in customers)
-{
-    Console.WriteLine(customer.FullName+" "+customer.Addrese+" "+customer.Email+" "+customer.Mobile);
-}
-
-db.Dispose();*/
-
-
-
-/*
-it dosent work
-var accoSystemDB = new AccoSystemDbContext();
-*/
 
 var welcome = new WelcomeCommand();
 welcome.Execute();
@@ -109,13 +54,45 @@ switch (continueNum)
         Transactions();
         break;
     case 3:
+        InComeReport();
         break;
     case 4:
+        CostReport();
         break;
     default:
         var wrongNum = new WrongNumberCommand();
         wrongNum.Execute();
         break;
+}
+
+void InComeReport()
+{
+    GetReport(1);
+}
+
+void CostReport()
+{
+    GetReport(2);
+}
+
+void GetReport(int type)
+{    var report = new ReportCommand();
+    report.Execute();
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var accountings = unit.AccountingRepository.Get(a => a.TypeId==type).ToList();
+        foreach (var accounting in accountings)
+        {
+            string name = unit.CustomerRepository.GetCustomerNameById(accounting.CustomerId);
+            var description = accounting.Description;
+            if (accounting.Description.IsNullOrEmpty())
+            {
+                description = "There is no explanation.";
+            }
+            Console.WriteLine("Name is : " + name + " - Amount is : " + accounting.Amount + " - Date is : " +
+                              accounting.DateTime.ToShamsi() + " - Description is : "+description);
+        }
+    }
 }
 
 void Transactions()

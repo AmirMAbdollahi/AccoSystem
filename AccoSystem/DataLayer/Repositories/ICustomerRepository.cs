@@ -20,4 +20,6 @@ public interface ICustomerRepository
 
     List<ListCustomerViewModel> GetCustomerForTransaction();
 
+    string GetCustomerNameById(int customerId);
+
 }

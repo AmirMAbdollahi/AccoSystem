@@ -91,5 +91,9 @@ public class CustomerRepository:ICustomerRepository
             Id = c.CustomerId
         }).ToList();
     }
-    
+
+    public string GetCustomerNameById(int customerId)
+    {
+        return context.Customers.Find(customerId).FullName;
+    }
 }

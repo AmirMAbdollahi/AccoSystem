@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AccoSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fdcb7ff253b186eb91855803f96324afc0facb93")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0db018624972d42f160aae9b5afd98ebf7efc57")]
 [assembly: System.Reflection.AssemblyProductAttribute("AccoSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AccoSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

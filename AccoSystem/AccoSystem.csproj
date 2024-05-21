@@ -18,7 +18,6 @@
 
     <ItemGroup>
       <Folder Include="Business\" />
-      <Folder Include="Utility\" />
     </ItemGroup>
 
 </Project>
