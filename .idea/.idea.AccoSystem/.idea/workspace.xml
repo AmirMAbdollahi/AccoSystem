@@ -8,9 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ed527e4-950e-48a2-8a4a-0fc372a9c5fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AccoSystem/Commands/TransactionsListCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AccoSystem/Commands/DeleteTransaction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/MainCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/MainCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/CustomerListCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/CustomerListCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/TransactionsListCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/TransactionsListCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.exe" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.exe" afterDir="false" />
@@ -114,7 +115,8 @@
       <workItem from="1716052902441" duration="8566000" />
       <workItem from="1716189053920" duration="4025000" />
       <workItem from="1716278670685" duration="5667000" />
-      <workItem from="1716310756685" duration="2252000" />
+      <workItem from="1716310756685" duration="2721000" />
+      <workItem from="1716396065394" duration="1656000" />
     </task>
     <servers />
   </component>

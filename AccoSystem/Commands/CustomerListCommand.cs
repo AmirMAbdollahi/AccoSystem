@@ -8,7 +8,6 @@ public class CustomerListCommand:ICommand
         Console.WriteLine("1. New customer");
         Console.WriteLine("2. Edit customer");
         Console.WriteLine("3. Delete customer");
-        Console.WriteLine("4. Update customer");
-        Console.WriteLine("5. Search customer");
+        Console.WriteLine("4. Search customer");
     }
 }

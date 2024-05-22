@@ -10,7 +10,7 @@ public class TransactionsListCommand:ICommand
         Console.WriteLine("1. New transaction");
         Console.WriteLine("2. Edit transaction");
         Console.WriteLine("3. Delete transaction");
-        Console.WriteLine("5. Search transaction");
+        Console.WriteLine("4. Search transaction");
     }
 }
 

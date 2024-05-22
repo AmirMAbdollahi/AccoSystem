@@ -41,9 +41,6 @@ switch (continueNum)
                 DeleteCustomer();
                 break;
             case 4:
-                UpdateCustomer();
-                break;
-            case 5:
                 SearchCustomer();
                 break;
             default:
@@ -62,16 +59,13 @@ switch (continueNum)
                 Transactions();
                 break;
             case 2:
-                EditCustomer();
+                EditTransaction();
                 break;
             case 3:
-                DeleteCustomer();
+                DeleteTransaction();
                 break;
             case 4:
-                UpdateCustomer();
-                break;
-            case 5:
-                SearchCustomer();
+                SearchTransaction();
                 break;
             default:
                 break;
@@ -87,6 +81,45 @@ switch (continueNum)
         var wrongNum = new WrongNumberCommand();
         wrongNum.Execute();
         break;
+}
+
+void EditTransaction()
+{
+    
+}
+
+void DeleteTransaction()
+{
+    var deleteTran = new DeleteTransaction();
+    deleteTran.Execute();
+    DisplayTransactionWithId();
+    deleteTran.TransactionIndex();
+    int index = Convert.ToInt32(Console.ReadLine());
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        unit.AccountingRepository.Delete(index);
+        unit.Save();
+    }
+    deleteTran.Finish();
+}
+
+void DisplayTransactionWithId()
+{
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var transactions=unit.AccountingRepository.Get().ToList();
+        foreach (var transaction in transactions)
+        {
+            string name = unit.CustomerRepository.GetCustomerNameById(transaction.CustomerId);
+            Console.WriteLine(transaction.Id+" - "+name + " - " + transaction.Amount + " - " +
+                              transaction.DateTime.ToShamsi() + " - "+transaction.Description);
+        }
+    }
+}
+
+void SearchTransaction()
+{
+    
 }
 
 void InComeReport()
@@ -326,11 +359,6 @@ void DeleteCustomer()
             }
         }
     }
-}
-
-void UpdateCustomer()
-{
-    
 }
 
 void SearchCustomer()
