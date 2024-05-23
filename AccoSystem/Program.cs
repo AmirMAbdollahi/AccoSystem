@@ -85,7 +85,62 @@ switch (continueNum)
 
 void EditTransaction()
 {
+    var editTran = new EditTransactionCommand();
+    editTran.Execute();
+    editTran.TransactionIndex();
+    var index=FindTransaction();
+    editTran.NewAmount();
+    var amount = Convert.ToInt32(Console.ReadLine());
+    editTran.NewDescription();
+    var description = Console.ReadLine();
+    int typeIndex = 0;
+    int CustomerId = 0;
+
+    /// two using
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var accountings = unit.AccountingRepository.Get().ToList();
+        foreach (var accounting in accountings)
+        {
+            if (accounting.Id == index)
+            {
+                typeIndex = accounting.TypeId;
+                CustomerId = accounting.CustomerId;
+            }
+        }
+    }
     
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        unit.AccountingRepository.Update(new Accounting()
+        {
+            Id = index,
+            DateTime = DateTime.Now,
+            Amount = amount,
+            Description = description,
+            CustomerId = CustomerId,
+            TypeId = typeIndex
+        });
+        unit.Save();
+    }
+}
+
+int FindTransaction()
+{
+    DisplayTransactionWithId();
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var transactions=unit.AccountingRepository.Get().ToList();
+        int index = Convert.ToInt32(Console.ReadLine());
+        for (int i = 0; i < transactions.Count; i++)
+        {
+            if (index == transactions[i].Id)
+            {
+                return index;
+            }
+        }
+    }
+    return -1;
 }
 
 void DeleteTransaction()
