@@ -20,5 +20,10 @@ public class EditTransactionCommand:ICommand
     {
         Console.WriteLine("Do you want to edite transaction's Description ? if not press enter.");
     }
+
+    public void Finish()
+    {
+        Console.WriteLine("Your transaction edited ...");
+    }
     
 }

@@ -8,9 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ed527e4-950e-48a2-8a4a-0fc372a9c5fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AccoSystem/Commands/EditTransactionCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AccoSystem/Commands/SearchTransaction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/EditTransactionCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/EditTransactionCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Utility/DateConvertor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Utility/DateConvertor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.exe" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/bin/Debug/net8.0/AccoSystem.pdb" afterDir="false" />
@@ -34,6 +36,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/efcore/0e8ece3526ef3575fb85de308b8a4cd5840f928e/src/EFCore/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/087e15321bb712ef6fe8b0ba6f8bd12facf92629/src/libraries/System.Private.CoreLib/src/System/Collections/Generic/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/2d7eea252964e69be94cb9c847b371b23e4dd470/src/libraries/System.Collections.Immutable/src/System/Collections/Frozen/FrozenDictionary.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/2d7eea252964e69be94cb9c847b371b23e4dd470/src/libraries/System.Private.CoreLib/src/System/Collections/Generic/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5147b10c5a8c4522b56fba0a889139cfc8f908/9c/fda0e39e/Type.cs" root0="SKIP_HIGHLIGHTING" />
@@ -117,7 +120,9 @@
       <workItem from="1716310756685" duration="2721000" />
       <workItem from="1716396065394" duration="2196000" />
       <workItem from="1716450732244" duration="6635000" />
-      <workItem from="1716467976633" duration="1206000" />
+      <workItem from="1716467976633" duration="2913000" />
+      <workItem from="1716535377336" duration="3353000" />
+      <workItem from="1716547396609" duration="1700000" />
     </task>
     <servers />
   </component>
@@ -132,16 +137,44 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
-          <line>138</line>
-          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="134" containingFunctionPresentation="Local function 'FindTransaction'">
+          <line>189</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="191" containingFunctionPresentation="Local function 'SearchTransaction'">
             <startOffsets>
-              <option value="3644" />
+              <option value="5269" />
+              <option value="5287" />
             </startOffsets>
             <endOffsets>
-              <option value="3657" />
+              <option value="5344" />
+              <option value="5333" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="7" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
+          <line>190</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="192" containingFunctionPresentation="Local function 'SearchTransaction'">
+            <startOffsets>
+              <option value="5353" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5388" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
+          <line>199</line>
+          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="201" containingFunctionPresentation="Local function 'DisplaySearchedTransaction'">
+            <startOffsets>
+              <option value="5547" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5578" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

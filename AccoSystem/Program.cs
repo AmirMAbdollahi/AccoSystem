@@ -122,6 +122,7 @@ void EditTransaction()
             TypeId = typeIndex
         });
         unit.Save();
+        editTran.Finish();
     }
 }
 
@@ -174,7 +175,35 @@ void DisplayTransactionWithId()
 
 void SearchTransaction()
 {
+    var searchTran = new SearchTransaction();
+    searchTran.Execute();
+    searchTran.FromDate();
+    var startDate = Console.ReadLine();
+    searchTran.ToDate();
+    var endDate = Console.ReadLine();
+    DateTime? fromDate = DateConvertor.ToMiladi(Convert.ToDateTime(startDate)); 
+    DateTime? toDate =DateConvertor.ToMiladi(Convert.ToDateTime(endDate));
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        List<Accounting> result = new List<Accounting>();
+        result = unit.AccountingRepository.Get().ToList();
+        result = result.Where(r => r.DateTime >= fromDate && r.DateTime <= toDate).ToList();
+        DisplaySearchedTransaction(result);
+    }
     
+}
+
+void DisplaySearchedTransaction(List<Accounting> results)
+{
+    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    {
+        foreach (var result in results)
+        {
+            string name = unit.CustomerRepository.GetCustomerNameById(result.CustomerId);
+            Console.WriteLine(result.Id+" - "+name + " - " + result.Amount + " - " +
+                              result.DateTime.ToShamsi() + " - "+result.Description);
+        }   
+    }
 }
 
 void InComeReport()
