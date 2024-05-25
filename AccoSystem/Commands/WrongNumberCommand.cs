@@ -1,9 +1,10 @@
 namespace AccoSystem.Commands;
 
-public class WrongNumberCommand:ICommand
+public class WrongNumberCommand:Command
 {
-    public void Execute()
+    public override void Execute()
     {
         Console.WriteLine("Please enter a valid number to continue....");
     }
+    
 }

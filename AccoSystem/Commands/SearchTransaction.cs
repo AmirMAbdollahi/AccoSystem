@@ -1,11 +1,12 @@
 namespace AccoSystem.Commands;
 
-public class SearchTransaction:ICommand
+public class SearchTransaction : Command
 {
-    public void Execute()
+    public override void Execute()
     {
         Console.WriteLine("You can search a transaction by date.");
     }
+
 
     public void FromDate()
     {

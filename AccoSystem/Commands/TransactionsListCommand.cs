@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AccoSystem.Commands;
 
-public class TransactionsListCommand:ICommand
+public class TransactionsListCommand:Command
 {
-    public void Execute()
+    public override void Execute()
     {
         Console.WriteLine("--------------------------------------------------\n");
         Console.WriteLine("1. New transaction");
@@ -12,6 +12,7 @@ public class TransactionsListCommand:ICommand
         Console.WriteLine("3. Delete transaction");
         Console.WriteLine("4. Search transaction");
     }
+    
 }
 
 

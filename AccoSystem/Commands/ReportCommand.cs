@@ -1,8 +1,8 @@
 namespace AccoSystem.Commands;
 
-public class ReportCommand:ICommand
+public class ReportCommand : Command
 {
-    public void Execute()
+    public override void Execute()
     {
         Console.WriteLine("You want to see the reports ...");
     }

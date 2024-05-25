@@ -1,9 +1,11 @@
 namespace AccoSystem.Commands;
 
-public class ContinueCommand:ICommand
+public class ContinueCommand:Command
 {
-    public void Execute()
+    public override void Execute()
     {
         Console.WriteLine("Enter one of the numbers to continue....");
+        
     }
+    
 }

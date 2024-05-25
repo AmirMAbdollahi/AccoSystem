@@ -46,6 +46,7 @@ switch (continueNum)
             default:
                 break;
         }
+
         break;
     case 2:
         Console.WriteLine("Your transactions are :");
@@ -70,6 +71,7 @@ switch (continueNum)
             default:
                 break;
         }
+
         break;
     case 3:
         InComeReport();
@@ -88,7 +90,7 @@ void EditTransaction()
     var editTran = new EditTransactionCommand();
     editTran.Execute();
     editTran.TransactionIndex();
-    var index=FindTransaction();
+    var index = FindTransaction();
     editTran.NewAmount();
     var amount = Convert.ToInt32(Console.ReadLine());
     editTran.NewDescription();
@@ -97,7 +99,7 @@ void EditTransaction()
     int CustomerId = 0;
 
     /// two using
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
         var accountings = unit.AccountingRepository.Get().ToList();
         foreach (var accounting in accountings)
@@ -109,8 +111,8 @@ void EditTransaction()
             }
         }
     }
-    
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
         unit.AccountingRepository.Update(new Accounting()
         {
@@ -129,9 +131,9 @@ void EditTransaction()
 int FindTransaction()
 {
     DisplayTransactionWithId();
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
-        var transactions=unit.AccountingRepository.Get().ToList();
+        var transactions = unit.AccountingRepository.Get().ToList();
         int index = Convert.ToInt32(Console.ReadLine());
         for (int i = 0; i < transactions.Count; i++)
         {
@@ -141,6 +143,7 @@ int FindTransaction()
             }
         }
     }
+
     return -1;
 }
 
@@ -151,24 +154,25 @@ void DeleteTransaction()
     DisplayTransactionWithId();
     deleteTran.TransactionIndex();
     int index = Convert.ToInt32(Console.ReadLine());
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
         unit.AccountingRepository.Delete(index);
         unit.Save();
     }
+
     deleteTran.Finish();
 }
 
 void DisplayTransactionWithId()
 {
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
-        var transactions=unit.AccountingRepository.Get().ToList();
+        var transactions = unit.AccountingRepository.Get().ToList();
         foreach (var transaction in transactions)
         {
             string name = unit.CustomerRepository.GetCustomerNameById(transaction.CustomerId);
-            Console.WriteLine(transaction.Id+" - "+name + " - " + transaction.Amount + " - " +
-                              transaction.DateTime.ToShamsi() + " - "+transaction.Description);
+            Console.WriteLine(transaction.Id + " - " + name + " - " + transaction.Amount + " - " +
+                              transaction.DateTime.ToShamsi() + " - " + transaction.Description);
         }
     }
 }
@@ -181,28 +185,27 @@ void SearchTransaction()
     var startDate = Console.ReadLine();
     searchTran.ToDate();
     var endDate = Console.ReadLine();
-    DateTime? fromDate = DateConvertor.ToMiladi(Convert.ToDateTime(startDate)); 
-    DateTime? toDate =DateConvertor.ToMiladi(Convert.ToDateTime(endDate));
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    DateTime? fromDate = DateConvertor.ToMiladi(Convert.ToDateTime(startDate));
+    DateTime? toDate = DateConvertor.ToMiladi(Convert.ToDateTime(endDate));
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
         List<Accounting> result = new List<Accounting>();
         result = unit.AccountingRepository.Get().ToList();
         result = result.Where(r => r.DateTime >= fromDate && r.DateTime <= toDate).ToList();
         DisplaySearchedTransaction(result);
     }
-    
 }
 
 void DisplaySearchedTransaction(List<Accounting> results)
 {
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
         foreach (var result in results)
         {
             string name = unit.CustomerRepository.GetCustomerNameById(result.CustomerId);
-            Console.WriteLine(result.Id+" - "+name + " - " + result.Amount + " - " +
-                              result.DateTime.ToShamsi() + " - "+result.Description);
-        }   
+            Console.WriteLine(result.Id + " - " + name + " - " + result.Amount + " - " +
+                              result.DateTime.ToShamsi() + " - " + result.Description);
+        }
     }
 }
 
@@ -217,12 +220,12 @@ void CostReport()
 }
 
 void GetReport(int type)
-{   
+{
     var report = new ReportCommand();
     report.Execute();
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
-        var accountings = unit.AccountingRepository.Get(a => a.TypeId==type).ToList();
+        var accountings = unit.AccountingRepository.Get(a => a.TypeId == type).ToList();
         foreach (var accounting in accountings)
         {
             string name = unit.CustomerRepository.GetCustomerNameById(accounting.CustomerId);
@@ -231,22 +234,23 @@ void GetReport(int type)
             {
                 description = "There is no explanation.";
             }
+
             Console.WriteLine("Name is : " + name + " - Amount is : " + accounting.Amount + " - Date is : " +
-                              accounting.DateTime.ToShamsi() + " - Description is : "+description);
+                              accounting.DateTime.ToShamsi() + " - Description is : " + description);
         }
     }
 }
 
 void GetTransaction()
 {
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
-        var transactions=unit.AccountingRepository.Get().ToList();
+        var transactions = unit.AccountingRepository.Get().ToList();
         foreach (var transaction in transactions)
         {
             string name = unit.CustomerRepository.GetCustomerNameById(transaction.CustomerId);
             Console.WriteLine(name + " - " + transaction.Amount + " - " +
-                              transaction.DateTime.ToShamsi() + " - "+transaction.Description);
+                              transaction.DateTime.ToShamsi() + " - " + transaction.Description);
         }
     }
 }
@@ -255,14 +259,14 @@ void Transactions()
 {
     var transaction = new NewTransaction();
     transaction.Execute();
-    var customerSelected=GetCustomerId();
+    var customerSelected = GetCustomerId();
     var typeId = GetTypeId();
     transaction.NewAmount();
     int amount = Convert.ToInt32(Console.ReadLine());
     transaction.NewDescription();
     string? description = Console.ReadLine();
-    
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
         unit.AccountingRepository.Insert(new Accounting()
         {
@@ -271,9 +275,8 @@ void Transactions()
             TypeId = typeId,
             DateTime = DateTime.Now,
             Description = description,
-            
         });
-        
+
         if (customerSelected == -1 || typeId != 1 && typeId != 2)
         {
             Console.WriteLine("You doesn't select a customer and Correct typing. your transaction was not registered.");
@@ -298,7 +301,7 @@ int GetCustomerId()
 {
     GetCustomersName();
     Console.WriteLine("Please select a customer id for new transaction... ");
-    var customersId=GetCustomersId();
+    var customersId = GetCustomersId();
     int customerSelected = Convert.ToInt32(Console.ReadLine());
     for (int i = 0; i < customersId.Count; i++)
     {
@@ -307,17 +310,19 @@ int GetCustomerId()
             return customersId[i];
         }
     }
+
     return -1;
 }
 
 void GetCustomerList()
 {
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
         var customers = unit.CustomerRepository.GetAllCustomers();
         foreach (var customer in customers)
         {
-            Console.WriteLine(customer.FullName+" - "+customer.Mobile+" - "+customer.Addrese+" - "+customer.Email);
+            Console.WriteLine(customer.FullName + " - " + customer.Mobile + " - " + customer.Addrese + " - " +
+                              customer.Email);
         }
     }
 }
@@ -326,20 +331,20 @@ void NewCustomer()
 {
     var newCus = new NewCustomerCommand();
     newCus.Execute();
-    
+
     newCus.NewFullName();
     var fullName = Console.ReadLine();
-    
+
     newCus.NewMobile();
     var mobile = Console.ReadLine();
-    
+
     newCus.NewAddrese();
     var addrese = Console.ReadLine();
-    
+
     newCus.NewEmail();
     var email = Console.ReadLine();
-    
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
         var customer = unit.CustomerRepository.InsertCustomer(new Customer()
         {
@@ -350,12 +355,13 @@ void NewCustomer()
         });
         unit.Save();
     }
+
     newCus.Finish();
 }
 
 void EditCustomer()
 {
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
         var editeCustomer = new EditeCustomerCommand();
         editeCustomer.Execute();
@@ -363,50 +369,25 @@ void EditCustomer()
         var customers = unit.CustomerRepository.GetAllCustomers();
         for (int i = 0; i < customers.Count; i++)
         {
-            Console.WriteLine($"{i}: "+customers[i].FullName+" - "+customers[i].Mobile+" - "+customers[i].Addrese+" - "+customers[i].Email);
+            Console.WriteLine($"{i}: " + customers[i].FullName + " - " + customers[i].Mobile + " - " +
+                              customers[i].Addrese + " - " + customers[i].Email);
         }
+
         editeCustomer.CustomerIndex();
         var customerIndex = Convert.ToInt32(Console.ReadLine());
+        var customerDictionary =
+            editeCustomer.GetPropertyValueDictionary<Customer>(a => a.CustomerId, a => a.Accountings);
         for (int i = 0; i < customers.Count(); i++)
         {
             if (customerIndex == i)
             {
-                
-                editeCustomer.NewFullName();
-                var newFullName = Console.ReadLine();
-                if (newFullName.IsNullOrEmpty())
-                {
-                    newFullName=customers[i].FullName;
-                }
-                
-                editeCustomer.NewMobile();
-                var newMobile = Console.ReadLine();
-                if (newMobile.IsNullOrEmpty())
-                {
-                    newMobile = customers[i].Mobile;
-                }
-
-                editeCustomer.NewAddrese();
-                var newAddrese = Console.ReadLine();
-                if (newAddrese.IsNullOrEmpty())
-                {
-                    newAddrese = customers[i].Addrese;
-                }
-                
-                editeCustomer.NewEmail();
-                var newEmail = Console.ReadLine();
-                if (newEmail.IsNullOrEmpty())
-                {
-                    newEmail = customers[i].Email;
-                }
-                
                 var customerEdited = unit.CustomerRepository.UpdateCustomer(new Customer()
                 {
                     CustomerId = customers[i].CustomerId,
-                    FullName = newFullName,
-                    Mobile = newMobile,
-                    Addrese = newAddrese,
-                    Email = newEmail
+                    FullName = customerDictionary["FullName"],
+                    Mobile = customerDictionary["Mobile"],
+                    Addrese = customerDictionary["Addrese"],
+                    Email = customerDictionary["Email"]
                 });
                 unit.Save();
                 editeCustomer.Finish();
@@ -417,15 +398,16 @@ void EditCustomer()
 
 void DisplayCustomers(List<Customer> customers)
 {
-    for (int i = 0 ; i < customers.Count; i++)
+    for (int i = 0; i < customers.Count; i++)
     {
-        Console.WriteLine($"{i}: "+customers[i].FullName+" - "+customers[i].Mobile+" - "+customers[i].Addrese+" - "+customers[i].Email);
+        Console.WriteLine($"{i}: " + customers[i].FullName + " - " + customers[i].Mobile + " - " +
+                          customers[i].Addrese + " - " + customers[i].Email);
     }
 }
 
 void DeleteCustomer()
 {
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
         var deleteCustomer = new DeleteCustomerCommand();
         deleteCustomer.Execute();
@@ -433,7 +415,7 @@ void DeleteCustomer()
         DisplayCustomers(customers);
         deleteCustomer.CustomerIndex();
         var customerIndex = Convert.ToInt32(Console.ReadLine());
-        for (int y = 0; y < customers.Count ; y++)
+        for (int y = 0; y < customers.Count; y++)
         {
             if (customerIndex == y)
             {
@@ -450,13 +432,14 @@ void SearchCustomer()
     var searchCommand = new SearchCustomerCommand();
     searchCommand.Execute();
     var name = Console.ReadLine();
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
         var customerName = unit.CustomerRepository.GetCustomerByFilter(name).ToList();
         Console.WriteLine("The customers you want ....");
         foreach (var customer in customerName)
         {
-            Console.WriteLine(customer.FullName+" - "+customer.Mobile+" - "+customer.Addrese+" - "+customer.Email);
+            Console.WriteLine(customer.FullName + " - " + customer.Mobile + " - " + customer.Addrese + " - " +
+                              customer.Email);
         }
     }
 }
@@ -464,25 +447,27 @@ void SearchCustomer()
 void GetCustomersName()
 {
     Console.WriteLine("Your customer's Name are :");
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
-        var customersNameViewModel=unit.CustomerRepository.GetCustomerForTransaction();
+        var customersNameViewModel = unit.CustomerRepository.GetCustomerForTransaction();
         foreach (var customerName in customersNameViewModel)
         {
-            Console.WriteLine(customerName.Id+"- "+customerName.FullName);
+            Console.WriteLine(customerName.Id + "- " + customerName.FullName);
         }
     }
 }
+
 List<int> GetCustomersId()
 {
-    using (UnitOfWork unit=new UnitOfWork(new AccoSystemDbContext()))
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
-        var customersNameViewModel=unit.CustomerRepository.GetCustomerForTransaction();
-        List<int> customersId=new List<int>();
+        var customersNameViewModel = unit.CustomerRepository.GetCustomerForTransaction();
+        List<int> customersId = new List<int>();
         for (int i = 0; i < customersNameViewModel.Count; i++)
         {
             customersId.Add(customersNameViewModel[i].Id);
         }
+
         return customersId;
     }
 }

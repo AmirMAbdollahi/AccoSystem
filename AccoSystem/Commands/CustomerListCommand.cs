@@ -1,8 +1,8 @@
 namespace AccoSystem.Commands;
 
-public class CustomerListCommand:ICommand
+public class CustomerListCommand:Command
 {
-    public void Execute()
+    public override void Execute()
     {
         Console.WriteLine("--------------------------------------------------\n");
         Console.WriteLine("1. New customer");

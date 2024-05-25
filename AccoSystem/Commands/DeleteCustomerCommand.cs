@@ -2,9 +2,9 @@ using System.Threading.Channels;
 
 namespace AccoSystem.Commands;
 
-public class DeleteCustomerCommand:ICommand
+public class DeleteCustomerCommand:Command
 {
-    public void Execute()
+    public override void Execute()
     {
         Console.WriteLine("You want to Delete a customer.");
     }

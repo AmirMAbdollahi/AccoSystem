@@ -1,9 +1,10 @@
 namespace AccoSystem.Commands;
 
-public class WelcomeCommand:ICommand
+public class WelcomeCommand:Command
 {
-    public void Execute()
+    public override void Execute()
     {
         Console.WriteLine("Hello welcome to my console app.");
     }
+    
 }

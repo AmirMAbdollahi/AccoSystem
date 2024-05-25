@@ -1,8 +1,8 @@
 namespace AccoSystem.Commands;
 
-public class NewTransaction:ICommand
+public class NewTransaction : Command
 {
-    public void Execute()
+    public override void Execute()
     {
         Console.WriteLine("You want to register a new transaction.");
     }
@@ -11,10 +11,12 @@ public class NewTransaction:ICommand
     {
         Console.WriteLine("please enter amount :");
     }
+
     public void NewDescription()
     {
         Console.WriteLine("please enter Description :");
     }
+
     public void NewTypeId()
     {
         Console.WriteLine("please enter 1 or 2 for type :");
