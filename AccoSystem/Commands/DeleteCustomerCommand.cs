@@ -18,4 +18,5 @@ public class DeleteCustomerCommand:Command
     {
         Console.WriteLine("The customer you wanted was deleted.");
     }
+    
 }

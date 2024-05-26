@@ -91,10 +91,13 @@ void EditTransaction()
     editTran.Execute();
     editTran.TransactionIndex();
     var index = FindTransaction();
-    editTran.NewAmount();
-    var amount = Convert.ToInt32(Console.ReadLine());
-    editTran.NewDescription();
-    var description = Console.ReadLine();
+    var transactionDictionary= editTran.GetPropertyValueDictionary<Accounting>(
+        a => a.CustomerId,
+        a => a.TypeId,
+        a => a.DateTime,
+        a => a.Customer,
+        a => a.Id,
+        a => a.Type);
     int typeIndex = 0;
     int CustomerId = 0;
 
@@ -118,8 +121,8 @@ void EditTransaction()
         {
             Id = index,
             DateTime = DateTime.Now,
-            Amount = amount,
-            Description = description,
+            Amount = Convert.ToInt32(transactionDictionary["Amount"]),
+            Description = transactionDictionary["Description"],
             CustomerId = CustomerId,
             TypeId = typeIndex
         });
@@ -260,21 +263,27 @@ void Transactions()
     var transaction = new NewTransaction();
     transaction.Execute();
     var customerSelected = GetCustomerId();
-    var typeId = GetTypeId();
-    transaction.NewAmount();
-    int amount = Convert.ToInt32(Console.ReadLine());
-    transaction.NewDescription();
-    string? description = Console.ReadLine();
+
+    transaction.NewTypeId();
+    var typeId = Convert.ToInt32(Console.ReadLine());
+    
+    var transactionDictionary = transaction.GetPropertyValueDictionary<Accounting>(
+        a=>a.Id,
+        a => a.CustomerId,
+        a => a.DateTime,
+        a=>a.Customer,
+        a=>a.Type,
+        a=>a.TypeId);
 
     using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
         unit.AccountingRepository.Insert(new Accounting()
         {
             CustomerId = customerSelected,
-            Amount = amount,
-            TypeId = typeId,
+            Amount =Convert.ToInt32(transactionDictionary["Amount"]),
+            TypeId =typeId,
             DateTime = DateTime.Now,
-            Description = description,
+            Description = transactionDictionary["Description"],
         });
 
         if (customerSelected == -1 || typeId != 1 && typeId != 2)
@@ -287,14 +296,6 @@ void Transactions()
             transaction.Finish();
         }
     }
-}
-
-int GetTypeId()
-{
-    var transaction = new NewTransaction();
-    transaction.NewTypeId();
-    int typeId = Convert.ToInt32(Console.ReadLine());
-    return typeId;
 }
 
 int GetCustomerId()
@@ -332,30 +333,21 @@ void NewCustomer()
     var newCus = new NewCustomerCommand();
     newCus.Execute();
 
-    newCus.NewFullName();
-    var fullName = Console.ReadLine();
-
-    newCus.NewMobile();
-    var mobile = Console.ReadLine();
-
-    newCus.NewAddrese();
-    var addrese = Console.ReadLine();
-
-    newCus.NewEmail();
-    var email = Console.ReadLine();
+    var customerDictionary = newCus.GetPropertyValueDictionary<Customer>(
+        a => a.CustomerId,
+        a => a.Accountings);
 
     using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
     {
         var customer = unit.CustomerRepository.InsertCustomer(new Customer()
         {
-            FullName = fullName,
-            Mobile = mobile,
-            Addrese = addrese,
-            Email = email
+            FullName = customerDictionary["FullName"],
+            Mobile = customerDictionary["Mobile"],
+            Addrese = customerDictionary["Addrese"],
+            Email = customerDictionary["Email"]
         });
         unit.Save();
     }
-
     newCus.Finish();
 }
 

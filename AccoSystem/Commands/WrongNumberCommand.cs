@@ -6,5 +6,4 @@ public class WrongNumberCommand:Command
     {
         Console.WriteLine("Please enter a valid number to continue....");
     }
-    
 }

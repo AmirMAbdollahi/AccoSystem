@@ -10,4 +10,5 @@ public class CustomerListCommand:Command
         Console.WriteLine("3. Delete customer");
         Console.WriteLine("4. Search customer");
     }
+    
 }

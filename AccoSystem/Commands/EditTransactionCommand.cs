@@ -13,16 +13,6 @@ public class EditTransactionCommand:Command
     {
         Console.WriteLine("Please enter the id of the transaction you want to edit ...");
     }
-    
-    public void NewAmount()
-    {
-        Console.WriteLine("Do you want to edite transaction's amount ? if not press enter.");
-    }
-    public void NewDescription()
-    {
-        Console.WriteLine("Do you want to edite transaction's Description ? if not press enter.");
-    }
-
     public void Finish()
     {
         Console.WriteLine("Your transaction edited ...");

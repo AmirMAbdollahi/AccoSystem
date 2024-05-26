@@ -16,5 +16,4 @@ public class EditeCustomerCommand:Command
     {
         Console.WriteLine("Your customer edited .");
     }
-    
 }

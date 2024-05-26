@@ -6,5 +6,4 @@ public class WelcomeCommand:Command
     {
         Console.WriteLine("Hello welcome to my console app.");
     }
-    
 }

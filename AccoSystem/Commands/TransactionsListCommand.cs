@@ -12,7 +12,6 @@ public class TransactionsListCommand:Command
         Console.WriteLine("3. Delete transaction");
         Console.WriteLine("4. Search transaction");
     }
-    
 }
 
 

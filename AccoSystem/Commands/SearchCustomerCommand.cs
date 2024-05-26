@@ -7,5 +7,4 @@ public class SearchCustomerCommand:Command
         Console.WriteLine("You can search a customer by name.");
         Console.WriteLine("Please enter the name you want ...");
     }
-    
 }
