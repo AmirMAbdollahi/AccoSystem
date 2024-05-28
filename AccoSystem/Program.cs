@@ -85,249 +85,6 @@ switch (continueNum)
         break;
 }
 
-void EditTransaction()
-{
-    var editTran = new EditTransactionCommand();
-    editTran.Execute();
-    editTran.TransactionIndex();
-    var index = FindTransaction();
-    var transactionDictionary= editTran.GetPropertyValueDictionary<Accounting>(
-        a => a.CustomerId,
-        a => a.TypeId,
-        a => a.DateTime,
-        a => a.Customer,
-        a => a.Id,
-        a => a.Type);
-    int typeIndex = 0;
-    int CustomerId = 0;
-
-    /// two using
-    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
-    {
-        var accountings = unit.AccountingRepository.Get().ToList();
-        foreach (var accounting in accountings)
-        {
-            if (accounting.Id == index)
-            {
-                typeIndex = accounting.TypeId;
-                CustomerId = accounting.CustomerId;
-            }
-        }
-    }
-
-    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
-    {
-        unit.AccountingRepository.Update(new Accounting()
-        {
-            Id = index,
-            DateTime = DateTime.Now,
-            Amount = Convert.ToInt32(transactionDictionary["Amount"]),
-            Description = transactionDictionary["Description"],
-            CustomerId = CustomerId,
-            TypeId = typeIndex
-        });
-        unit.Save();
-        editTran.Finish();
-    }
-}
-
-int FindTransaction()
-{
-    DisplayTransactionWithId();
-    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
-    {
-        var transactions = unit.AccountingRepository.Get().ToList();
-        int index = Convert.ToInt32(Console.ReadLine());
-        for (int i = 0; i < transactions.Count; i++)
-        {
-            if (index == transactions[i].Id)
-            {
-                return index;
-            }
-        }
-    }
-
-    return -1;
-}
-
-void DeleteTransaction()
-{
-    var deleteTran = new DeleteTransaction();
-    deleteTran.Execute();
-    DisplayTransactionWithId();
-    deleteTran.TransactionIndex();
-    int index = Convert.ToInt32(Console.ReadLine());
-    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
-    {
-        unit.AccountingRepository.Delete(index);
-        unit.Save();
-    }
-
-    deleteTran.Finish();
-}
-
-void DisplayTransactionWithId()
-{
-    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
-    {
-        var transactions = unit.AccountingRepository.Get().ToList();
-        foreach (var transaction in transactions)
-        {
-            string name = unit.CustomerRepository.GetCustomerNameById(transaction.CustomerId);
-            Console.WriteLine(transaction.Id + " - " + name + " - " + transaction.Amount + " - " +
-                              transaction.DateTime.ToShamsi() + " - " + transaction.Description);
-        }
-    }
-}
-
-void SearchTransaction()
-{
-    var searchTran = new SearchTransaction();
-    searchTran.Execute();
-    searchTran.FromDate();
-    var startDate = Console.ReadLine();
-    searchTran.ToDate();
-    var endDate = Console.ReadLine();
-    DateTime? fromDate = DateConvertor.ToMiladi(Convert.ToDateTime(startDate));
-    DateTime? toDate = DateConvertor.ToMiladi(Convert.ToDateTime(endDate));
-    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
-    {
-        List<Accounting> result = new List<Accounting>();
-        result = unit.AccountingRepository.Get().ToList();
-        result = result.Where(r => r.DateTime >= fromDate && r.DateTime <= toDate).ToList();
-        DisplaySearchedTransaction(result);
-    }
-}
-
-void DisplaySearchedTransaction(List<Accounting> results)
-{
-    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
-    {
-        foreach (var result in results)
-        {
-            string name = unit.CustomerRepository.GetCustomerNameById(result.CustomerId);
-            Console.WriteLine(result.Id + " - " + name + " - " + result.Amount + " - " +
-                              result.DateTime.ToShamsi() + " - " + result.Description);
-        }
-    }
-}
-
-void InComeReport()
-{
-    GetReport(1);
-}
-
-void CostReport()
-{
-    GetReport(2);
-}
-
-void GetReport(int type)
-{
-    var report = new ReportCommand();
-    report.Execute();
-    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
-    {
-        var accountings = unit.AccountingRepository.Get(a => a.TypeId == type).ToList();
-        foreach (var accounting in accountings)
-        {
-            string name = unit.CustomerRepository.GetCustomerNameById(accounting.CustomerId);
-            var description = accounting.Description;
-            if (accounting.Description.IsNullOrEmpty())
-            {
-                description = "There is no explanation.";
-            }
-
-            Console.WriteLine("Name is : " + name + " - Amount is : " + accounting.Amount + " - Date is : " +
-                              accounting.DateTime.ToShamsi() + " - Description is : " + description);
-        }
-    }
-}
-
-void GetTransaction()
-{
-    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
-    {
-        var transactions = unit.AccountingRepository.Get().ToList();
-        foreach (var transaction in transactions)
-        {
-            string name = unit.CustomerRepository.GetCustomerNameById(transaction.CustomerId);
-            Console.WriteLine(name + " - " + transaction.Amount + " - " +
-                              transaction.DateTime.ToShamsi() + " - " + transaction.Description);
-        }
-    }
-}
-
-void Transactions()
-{
-    var transaction = new NewTransaction();
-    transaction.Execute();
-    var customerSelected = GetCustomerId();
-
-    transaction.NewTypeId();
-    var typeId = Convert.ToInt32(Console.ReadLine());
-    
-    var transactionDictionary = transaction.GetPropertyValueDictionary<Accounting>(
-        a=>a.Id,
-        a => a.CustomerId,
-        a => a.DateTime,
-        a=>a.Customer,
-        a=>a.Type,
-        a=>a.TypeId);
-
-    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
-    {
-        unit.AccountingRepository.Insert(new Accounting()
-        {
-            CustomerId = customerSelected,
-            Amount =Convert.ToInt32(transactionDictionary["Amount"]),
-            TypeId =typeId,
-            DateTime = DateTime.Now,
-            Description = transactionDictionary["Description"],
-        });
-
-        if (customerSelected == -1 || typeId != 1 && typeId != 2)
-        {
-            Console.WriteLine("You doesn't select a customer and Correct typing. your transaction was not registered.");
-        }
-        else
-        {
-            unit.Save();
-            transaction.Finish();
-        }
-    }
-}
-
-int GetCustomerId()
-{
-    GetCustomersName();
-    Console.WriteLine("Please select a customer id for new transaction... ");
-    var customersId = GetCustomersId();
-    int customerSelected = Convert.ToInt32(Console.ReadLine());
-    for (int i = 0; i < customersId.Count; i++)
-    {
-        if (customerSelected == customersId[i])
-        {
-            return customersId[i];
-        }
-    }
-
-    return -1;
-}
-
-void GetCustomerList()
-{
-    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
-    {
-        var customers = unit.CustomerRepository.GetAllCustomers();
-        foreach (var customer in customers)
-        {
-            Console.WriteLine(customer.FullName + " - " + customer.Mobile + " - " + customer.Addrese + " - " +
-                              customer.Email);
-        }
-    }
-}
-
 void NewCustomer()
 {
     var newCus = new NewCustomerCommand();
@@ -388,15 +145,6 @@ void EditCustomer()
     }
 }
 
-void DisplayCustomers(List<Customer> customers)
-{
-    for (int i = 0; i < customers.Count; i++)
-    {
-        Console.WriteLine($"{i}: " + customers[i].FullName + " - " + customers[i].Mobile + " - " +
-                          customers[i].Addrese + " - " + customers[i].Email);
-    }
-}
-
 void DeleteCustomer()
 {
     using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
@@ -433,6 +181,263 @@ void SearchCustomer()
             Console.WriteLine(customer.FullName + " - " + customer.Mobile + " - " + customer.Addrese + " - " +
                               customer.Email);
         }
+    }
+}
+
+void Transactions()
+{
+    var transaction = new NewTransaction();
+    transaction.Execute();
+    var customerSelected = GetCustomerId();
+
+    transaction.NewTypeId();
+    var typeId = Convert.ToInt32(Console.ReadLine());
+    
+    var transactionDictionary = transaction.GetPropertyValueDictionary<Accounting>(
+        a=>a.Id,
+        a => a.CustomerId,
+        a => a.DateTime,
+        a=>a.Customer,
+        a=>a.Type,
+        a=>a.TypeId);
+
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
+    {
+        unit.AccountingRepository.Insert(new Accounting()
+        {
+            CustomerId = customerSelected,
+            Amount =Convert.ToInt32(transactionDictionary["Amount"]),
+            TypeId =typeId,
+            DateTime = DateTime.Now,
+            Description = transactionDictionary["Description"],
+        });
+
+        if (customerSelected == -1 || typeId != 1 && typeId != 2)
+        {
+            Console.WriteLine("You doesn't select a customer and Correct typing. your transaction was not registered.");
+        }
+        else
+        {
+            unit.Save();
+            transaction.Finish();
+        }
+    }
+}
+
+void EditTransaction()
+{
+    var editTran = new EditTransactionCommand();
+    editTran.Execute();
+    editTran.TransactionIndex();
+    var index = FindTransaction();
+    var transactionDictionary= editTran.GetPropertyValueDictionary<Accounting>(
+        a => a.CustomerId,
+        a => a.TypeId,
+        a => a.DateTime,
+        a => a.Customer,
+        a => a.Id,
+        a => a.Type);
+    int typeIndex = 0;
+    int CustomerId = 0;
+
+    /// two using
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var accountings = unit.AccountingRepository.Get().ToList();
+        foreach (var accounting in accountings)
+        {
+            if (accounting.Id == index)
+            {
+                typeIndex = accounting.TypeId;
+                CustomerId = accounting.CustomerId;
+            }
+        }
+    }
+
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
+    {
+        unit.AccountingRepository.Update(new Accounting()
+        {
+            Id = index,
+            DateTime = DateTime.Now,
+            Amount = Convert.ToInt32(transactionDictionary["Amount"]),
+            Description = transactionDictionary["Description"],
+            CustomerId = CustomerId,
+            TypeId = typeIndex
+        });
+        unit.Save();
+        editTran.Finish();
+    }
+}
+
+void DeleteTransaction()
+{
+    var deleteTran = new DeleteTransaction();
+    deleteTran.Execute();
+    DisplayTransactionWithId();
+    deleteTran.TransactionIndex();
+    int index = Convert.ToInt32(Console.ReadLine());
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
+    {
+        unit.AccountingRepository.Delete(index);
+        unit.Save();
+    }
+
+    deleteTran.Finish();
+}
+
+void SearchTransaction()
+{
+    var searchTran = new SearchTransaction();
+    searchTran.Execute();
+    searchTran.FromDate();
+    var startDate = Console.ReadLine();
+    searchTran.ToDate();
+    var endDate = Console.ReadLine();
+    DateTime? fromDate = DateConvertor.ToMiladi(Convert.ToDateTime(startDate));
+    DateTime? toDate = DateConvertor.ToMiladi(Convert.ToDateTime(endDate));
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
+    {
+        List<Accounting> result = new List<Accounting>();
+        result = unit.AccountingRepository.Get().ToList();
+        result = result.Where(r => r.DateTime >= fromDate && r.DateTime <= toDate).ToList();
+        DisplaySearchedTransaction(result);
+    }
+}
+
+void InComeReport()
+{
+    GetReport(1);
+}
+
+void CostReport()
+{
+    GetReport(2);
+}
+
+void GetReport(int type)
+{
+    var report = new ReportCommand();
+    report.Execute();
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var accountings = unit.AccountingRepository.Get(a => a.TypeId == type).ToList();
+        foreach (var accounting in accountings)
+        {
+            string name = unit.CustomerRepository.GetCustomerNameById(accounting.CustomerId);
+            var description = accounting.Description;
+            if (accounting.Description.IsNullOrEmpty())
+            {
+                description = "There is no explanation.";
+            }
+
+            Console.WriteLine("Name is : " + name + " - Amount is : " + accounting.Amount + " - Date is : " +
+                              accounting.DateTime.ToShamsi() + " - Description is : " + description);
+        }
+    }
+}
+
+
+////Helper methods
+
+
+int FindTransaction()
+{
+    DisplayTransactionWithId();
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var transactions = unit.AccountingRepository.Get().ToList();
+        int index = Convert.ToInt32(Console.ReadLine());
+        for (int i = 0; i < transactions.Count; i++)
+        {
+            if (index == transactions[i].Id)
+            {
+                return index;
+            }
+        }
+    }
+
+    return -1;
+}
+
+void DisplayTransactionWithId()
+{
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var transactions = unit.AccountingRepository.Get().ToList();
+        foreach (var transaction in transactions)
+        {
+            string name = unit.CustomerRepository.GetCustomerNameById(transaction.CustomerId);
+            Console.WriteLine(transaction.Id + " - " + name + " - " + transaction.Amount + " - " +
+                              transaction.DateTime.ToShamsi() + " - " + transaction.Description);
+        }
+    }
+}
+
+void DisplaySearchedTransaction(List<Accounting> results)
+{
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
+    {
+        foreach (var result in results)
+        {
+            string name = unit.CustomerRepository.GetCustomerNameById(result.CustomerId);
+            Console.WriteLine(result.Id + " - " + name + " - " + result.Amount + " - " +
+                              result.DateTime.ToShamsi() + " - " + result.Description);
+        }
+    }
+}
+
+void GetTransaction()
+{
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var transactions = unit.AccountingRepository.Get().ToList();
+        foreach (var transaction in transactions)
+        {
+            string name = unit.CustomerRepository.GetCustomerNameById(transaction.CustomerId);
+            Console.WriteLine(name + " - " + transaction.Amount + " - " +
+                              transaction.DateTime.ToShamsi() + " - " + transaction.Description);
+        }
+    }
+}
+
+int GetCustomerId()
+{
+    GetCustomersName();
+    Console.WriteLine("Please select a customer id for new transaction... ");
+    var customersId = GetCustomersId();
+    int customerSelected = Convert.ToInt32(Console.ReadLine());
+    for (int i = 0; i < customersId.Count; i++)
+    {
+        if (customerSelected == customersId[i])
+        {
+            return customersId[i];
+        }
+    }
+
+    return -1;
+}
+
+void GetCustomerList()
+{
+    using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
+    {
+        var customers = unit.CustomerRepository.GetAllCustomers();
+        foreach (var customer in customers)
+        {
+            Console.WriteLine(customer.FullName + " - " + customer.Mobile + " - " + customer.Addrese + " - " +
+                              customer.Email);
+        }
+    }
+}
+
+
+void DisplayCustomers(List<Customer> customers)
+{
+    for (int i = 0; i < customers.Count; i++)
+    {
+        Console.WriteLine($"{i}: " + customers[i].FullName + " - " + customers[i].Mobile + " - " +
+                          customers[i].Addrese + " - " + customers[i].Email);
     }
 }
 
