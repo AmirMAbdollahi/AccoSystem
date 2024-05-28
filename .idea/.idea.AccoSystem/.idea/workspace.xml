@@ -8,10 +8,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ed527e4-950e-48a2-8a4a-0fc372a9c5fa" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AccoSystem/Commands/CustomerCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AccoSystem/Commands/TransactionCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Repo/AllRepo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AccoSystem/Services/CustomerService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AccoSystem/Services/ICustomerService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AccoSystem/Services/ITransactionService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AccoSystem/Services/TransactionService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/Command.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/ContinueCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/CustomerListCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/DeleteCustomerCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/DeleteTransaction.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/EditTransactionCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/EditeCustomerCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/MainCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/NewCustomerCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/NewTransaction.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/ReportCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/SearchCustomerCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/SearchTransaction.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/TransactionsListCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/WelcomeCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/WrongNumberCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Services/AllRepo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Services/CustomerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Repo/CustomerRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.sourcelink.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +140,8 @@
       <workItem from="1716547396609" duration="1700000" />
       <workItem from="1716673319690" duration="3323000" />
       <workItem from="1716733132252" duration="5499000" />
-      <workItem from="1716879171823" duration="3879000" />
+      <workItem from="1716879171823" duration="13846000" />
+      <workItem from="1716895269743" duration="70000" />
     </task>
     <servers />
   </component>
@@ -128,81 +156,16 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
-          <line>380</line>
+          <line>374</line>
           <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="201" containingFunctionPresentation="Local function 'DisplaySearchedTransaction'">
             <startOffsets>
-              <option value="11155" />
+              <option value="10916" />
             </startOffsets>
             <endOffsets>
-              <option value="11186" />
+              <option value="10947" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AccoSystem/Commands/Command.cs</url>
-          <line>29</line>
-          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Commands\Command.cs" initialLine="29" containingFunctionPresentation="Method 'GetPropertyValueDictionary'">
-            <startOffsets>
-              <option value="1087" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1138" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AccoSystem/Commands/Command.cs</url>
-          <line>35</line>
-          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Commands\Command.cs" initialLine="35" containingFunctionPresentation="Method 'GetPropertyValueDictionary'">
-            <startOffsets>
-              <option value="1311" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1356" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AccoSystem/Commands/Command.cs</url>
-          <line>16</line>
-          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Commands\Command.cs" initialLine="16" containingFunctionPresentation="Method 'GetPropertyValueDictionary'">
-            <startOffsets>
-              <option value="552" />
-            </startOffsets>
-            <endOffsets>
-              <option value="581" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AccoSystem/Commands/Command.cs</url>
-          <line>19</line>
-          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Commands\Command.cs" initialLine="19" containingFunctionPresentation="Method 'GetPropertyValueDictionary'">
-            <startOffsets>
-              <option value="701" />
-            </startOffsets>
-            <endOffsets>
-              <option value="758" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AccoSystem/Commands/Command.cs</url>
-          <line>22</line>
-          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Commands\Command.cs" initialLine="22" containingFunctionPresentation="Method 'GetPropertyValueDictionary'">
-            <startOffsets>
-              <option value="855" />
-            </startOffsets>
-            <endOffsets>
-              <option value="905" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,12 +1,12 @@
 using System.Linq.Expressions;
+using AccoSystem.DataLayer;
 
 namespace AccoSystem.Commands;
 
 public abstract class Command
 {
-    public abstract void Execute();
-
-    public Dictionary<string, string> GetPropertyValueDictionary<T>(params Expression<Func<T, object>>[] ignoredProperties)
+    public Dictionary<string, string> GetPropertyValueDictionary<T>(
+        params Expression<Func<T, object>>[] ignoredProperties)
     {
         var type = typeof(T);
         var properties = type.GetProperties();
@@ -24,6 +24,7 @@ public abstract class Command
                     break;
             }
         }
+
         Dictionary<string, string> customerDictionary = new();
         foreach (var property in properties)
         {
@@ -38,8 +39,10 @@ public abstract class Command
                 Console.WriteLine("Please enter valid value");
                 goto start;
             }
-            customerDictionary.Add(property.Name,propertyValue);
+
+            customerDictionary.Add(property.Name, propertyValue);
         }
+
         return customerDictionary;
     }
 }

@@ -1,33 +1,16 @@
-﻿using System.Collections.Frozen;
-using System.ComponentModel;
-using System.Threading.Channels;
-using AccoSystem.Commands;
-using AccoSystem.DataLayer;
+﻿using AccoSystem.DataLayer;
 using AccoSystem.DataLayer.Context;
-using AccoSystem.DataLayer.Services;
 using AccoSystem.Utility;
-using AccoSystem.ViewModels;
-using Microsoft.EntityFrameworkCore.Query.Internal;
+
 using Microsoft.IdentityModel.Tokens;
 
-var welcome = new WelcomeCommand();
-welcome.Execute();
-
-var main = new MainCommand();
-main.Execute();
-
-var continueCom = new ContinueCommand();
-continueCom.Execute();
-
 var continueNum = Convert.ToInt32(Console.ReadLine());
-
+/*
 switch (continueNum)
 {
     case 1:
         Console.WriteLine("Your customers are :");
         GetCustomerList();
-        var cusList = new CustomerListCommand();
-        cusList.Execute();
         var num = Convert.ToInt32(Console.ReadLine());
         switch (num)
         {
@@ -51,8 +34,7 @@ switch (continueNum)
     case 2:
         Console.WriteLine("Your transactions are :");
         GetTransaction();
-        var trnList = new TransactionsListCommand();
-        trnList.Execute();
+
         var number = Convert.ToInt32(Console.ReadLine());
         switch (number)
         {
@@ -80,8 +62,7 @@ switch (continueNum)
         CostReport();
         break;
     default:
-        var wrongNum = new WrongNumberCommand();
-        wrongNum.Execute();
+
         break;
 }
 
@@ -336,7 +317,7 @@ void GetReport(int type)
         }
     }
 }
-
+*/
 
 ////Helper methods
 
