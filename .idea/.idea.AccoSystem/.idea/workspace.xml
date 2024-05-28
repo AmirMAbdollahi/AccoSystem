@@ -8,37 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ed527e4-950e-48a2-8a4a-0fc372a9c5fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AccoSystem/Commands/CustomerCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AccoSystem/Commands/TransactionCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Repo/AllRepo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AccoSystem/Services/CustomerService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AccoSystem/Services/ICustomerService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AccoSystem/Services/ITransactionService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AccoSystem/Services/TransactionService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/Command.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/ContinueCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/CustomerListCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/DeleteCustomerCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/DeleteTransaction.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/EditTransactionCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/EditeCustomerCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/MainCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/NewCustomerCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/NewTransaction.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/ReportCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/SearchCustomerCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/SearchTransaction.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/TransactionsListCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/WelcomeCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/WrongNumberCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Services/AllRepo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Services/CustomerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Repo/CustomerRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/CustomerCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/CustomerCommand.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,6 +114,7 @@
       <workItem from="1716733132252" duration="5499000" />
       <workItem from="1716879171823" duration="13846000" />
       <workItem from="1716895269743" duration="70000" />
+      <workItem from="1716914102762" duration="5947000" />
     </task>
     <servers />
   </component>
@@ -152,23 +125,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AccoSystem/Program.cs</url>
-          <line>374</line>
-          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Program.cs" initialLine="201" containingFunctionPresentation="Local function 'DisplaySearchedTransaction'">
-            <startOffsets>
-              <option value="10916" />
-            </startOffsets>
-            <endOffsets>
-              <option value="10947" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#System.Reflection.PropertyAttributes" memberName="value__" />
