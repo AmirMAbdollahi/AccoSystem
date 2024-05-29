@@ -4,7 +4,7 @@ namespace AccoSystem.Services;
 
 public interface ITransactionService
 {
-    public List<Accounting> Get(int typeId);
+    public List<Accounting> Get(int typeId=0);
 
 
     public bool Add(int customerId, int amount, int typeId, string description);

@@ -6,19 +6,21 @@ namespace AccoSystem.Commands;
 
 public abstract class Command
 {
-    // private Dictionary<string, string> _commandList;
-    //
-    // public Dictionary<string, string> CommandList
-    // {
-    //     get
-    //     {
-    //         return 
-    //     }
-    //     set
-    //     {
-    //         _commandList = CommandsValue();
-    //     }
-    // }
+    private Dictionary<string, string> _commandList;
+    
+    public Dictionary<string, string> CommandList
+    {
+        get
+        {
+            return _commandList;
+        }
+        set
+        {
+            _commandList.Add("AccoSystem", "1");
+            _commandList.Add("Help","1");
+            _commandList.Add("Back", "1");
+        }
+    }
 
     public Dictionary<string, string> CommandsValue(string path)
     {
@@ -57,7 +59,7 @@ public abstract class Command
                 commands.Add("Back", "1");
                 break;
         }
-        commands.Add("Help", "1");
+        
         return commands;
     }
 
