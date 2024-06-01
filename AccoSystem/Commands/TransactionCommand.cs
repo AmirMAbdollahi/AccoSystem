@@ -19,7 +19,12 @@ public class TransactionCommand : Command
         Print(accounting);
     }
 
-    public void Add()
+    public override void Get()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void Add()
     {
         var customerId = GetOneCustomerFromIds();
         var addDictionary = GetPropertyValueDictionary<Accounting>(
@@ -37,7 +42,7 @@ public class TransactionCommand : Command
         Result(accounting);
     }
 
-    public void Edit()
+    public override void Edit()
     {
         var id = GetId();
         var editDictionary = GetPropertyValueDictionary<Accounting>(
@@ -55,14 +60,14 @@ public class TransactionCommand : Command
         Result(accounting);
     }
 
-    public void Delete()
+    public override void Delete()
     {
         var id = GetId();
         var accounting = _transactionService.Delete(id);
         Result(accounting);
     }
 
-    public void Search()
+    public override void Search()
     {
         Console.WriteLine("From what date do you want to filter transactions? ");
         var startDate = Console.ReadLine();

@@ -1,4 +1,6 @@
+using System.Dynamic;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using AccoSystem.DataLayer;
 
@@ -6,63 +8,6 @@ namespace AccoSystem.Commands;
 
 public abstract class Command
 {
-    private Dictionary<string, string> _commandList;
-    
-    public Dictionary<string, string> CommandList
-    {
-        get
-        {
-            return _commandList;
-        }
-        set
-        {
-            _commandList.Add("AccoSystem", "1");
-            _commandList.Add("Help","1");
-            _commandList.Add("Back", "1");
-        }
-    }
-
-    public Dictionary<string, string> CommandsValue(string path)
-    {
-        Dictionary<string, string> commands = new Dictionary<string, string>();
-        
-        switch (GetLastPath(path))
-        {
-            case "ConsoleApp":
-                commands.Add("AccoSystem", "1");
-                break;
-            case "AccoSystem":
-                commands.Add("Customer", "1");
-                commands.Add("Transaction", "1");
-                commands.Add("Back", "1");
-                break;
-            case "Customer":
-                commands.Add("Get", "1");
-                commands.Add("Add", "1");
-                commands.Add("Edit", "1");
-                commands.Add("Delete", "1");
-                commands.Add("Search", "1");
-                commands.Add("Back", "1");
-                break;
-            case "Transaction":
-                commands.Add("Get", "1");
-                commands.Add("Add", "1");
-                commands.Add("Edit", "1");
-                commands.Add("Delete", "1");
-                commands.Add("Search", "1");
-                commands.Add("Report", "1");
-                commands.Add("Back", "1");
-                break;
-            case "Report":
-                commands.Add("Income", "1");
-                commands.Add("Cost", "1");
-                commands.Add("Back", "1");
-                break;
-        }
-        
-        return commands;
-    }
-
     public Dictionary<string, string> GetPropertyValueDictionary<T>(
         params Expression<Func<T, object>>[] ignoredProperties)
     {
@@ -104,33 +49,50 @@ public abstract class Command
         return customerDictionary;
     }
 
-    public void CommandAnalysis(string command)
+    List<string> GetCommandClassNames()
     {
-        // foreach (var value in CommandsValue())
-        // {
-        //     if (command == value.Key)
-        //     {
-        //     }
-        // }
+        var assembly = Assembly.GetAssembly(typeof(Command));
+
+        var types = assembly!.GetTypes();
+
+        var classNameList = types
+            .Where(t => t.IsSubclassOf(typeof(Command)))
+            .Select(t => t.Name)
+            .ToList();
+
+        return classNameList;
     }
 
-    private void Path(string command)
+    public void CommandAnalysis(List<string> classNameList, string command)
     {
-    }
+        string[] commandWords = command.Split(' ');
+        string firstUserCommand = commandWords[0];
+        string secondUserCommand = commandWords[1];
 
-    private string GetLastPath(string path)
-    {
-        StringBuilder sb = new StringBuilder();
-
-        foreach (char c in path)
+        bool matchPrefixFound = classNameList.Exists(commandClass => 
         {
-            sb.Append(c);
-            if (c.ToString().Contains("/"))
-            {
-                sb.Clear();
-            }
+            string commandPrefix = commandClass.Replace("Command", "");
+            return commandPrefix.Equals(firstUserCommand, StringComparison.OrdinalIgnoreCase);
+        });
+        if (matchPrefixFound)
+        {
+            // call with subClass
+        }
+        else
+        {
+            // call help method
         }
 
-        return sb.ToString();
     }
+    
+
+    public abstract void Get();
+    public abstract void Add();
+
+    public abstract void Edit();
+
+    public abstract void Delete();
+
+    public abstract void Search();
+
 }

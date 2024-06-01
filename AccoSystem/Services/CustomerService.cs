@@ -15,27 +15,20 @@ public class CustomerService : ICustomerService
 
     public bool Add(string fullName, string mobile, string addrese, string email)
     {
-        bool isSuccessful = false;
-        try
+        bool isSuccessful;
+        using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
         {
-            using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
+            isSuccessful = unit.CustomerRepository.InsertCustomer(new Customer()
             {
-                isSuccessful = unit.CustomerRepository.InsertCustomer(new Customer()
-                {
-                    FullName = fullName,
-                    Mobile = mobile,
-                    Addrese = addrese,
-                    Email = email
-                });
-                unit.Save();
-            }
+                FullName = fullName,
+                Mobile = mobile,
+                Addrese = addrese,
+                Email = email
+            });
+            unit.Save();
+        }
 
-            return isSuccessful;
-        }
-        catch
-        {
-            return isSuccessful;
-        }
+        return isSuccessful;
     }
 
     public bool Edit(int id, string fullName, string mobile, string addrese, string email)

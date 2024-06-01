@@ -8,50 +8,52 @@ public class CustomerCommand : Command
 {
     private ICustomerService _customerService;
 
-    public CustomerCommand(CustomerService customerService)
+    public CustomerCommand(ICustomerService customerService)
     {
         _customerService = customerService;
     }
     
-    public void Get()
+    public override void Get()
     {
         var customers = _customerService.Get();
         Print(customers);
     }
 
-    public void Add()
+    public override void Add()
     {
-        var addDictionary = GetPropertyValueDictionary<Customer>(a => a.CustomerId,
+        var addDictionary = GetPropertyValueDictionary<Customer>(
+            a => a.CustomerId,
             a => a.Accountings);
         var fullName = addDictionary["FullName"];
         var mobile = addDictionary["Mobile"];
         var addrese = addDictionary["addrese"];
         var email = addDictionary["email"];
         var customer = _customerService.Add(fullName, mobile, addrese, email);
-        Result(customer);
+        ShowResultMessage(customer);
     }
 
-    public void Edit()
+    public override void Edit()
     {
         var id = GetId();
-        var editDictionary = GetPropertyValueDictionary<Customer>(a => a.CustomerId,
+        var editDictionary = GetPropertyValueDictionary<Customer>(
+            a => a.CustomerId,
             a => a.Accountings);
         var fullName = editDictionary["FullName"];
         var mobile = editDictionary["Mobile"];
         var addrese = editDictionary["addrese"];
         var email = editDictionary["email"];
         var customer = _customerService.Edit(id, fullName, mobile, addrese, email);
-        Result(customer);
+        ShowResultMessage(customer);
     }
 
-    public void Delete()
+    public override void Delete()
     {
         var id = GetId();
         var customer = _customerService.Delete(id);
-        Result(customer);
+        ShowResultMessage(customer);
     }
 
-    public void Search()
+    public override void Search()
     {
         Console.WriteLine("Do you want to search customer? Please enter its Name");
         var query = Console.ReadLine();
@@ -98,7 +100,7 @@ public class CustomerCommand : Command
         return id;
     }
 
-    private void Result(bool isSuccessful)
+    private void ShowResultMessage(bool isSuccessful)
     {
         if (isSuccessful)
         {

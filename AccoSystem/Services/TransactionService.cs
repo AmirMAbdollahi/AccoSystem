@@ -1,6 +1,5 @@
 using AccoSystem.DataLayer;
 using AccoSystem.DataLayer.Context;
-using AccoSystem.Utility;
 
 namespace AccoSystem.Services;
 
@@ -8,20 +7,13 @@ public class TransactionService : ITransactionService
 {
     public List<Accounting> Get(int typeId = 0)
     {
-        using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
-        {
-            if (typeId == 1 || typeId == 2)
-            {
-                return unit.AccountingRepository.Get(a => a.TypeId == typeId).ToList();
-            }
-
-            return unit.AccountingRepository.Get().ToList();
-        }
+        using var unit = new UnitOfWork(new AccoSystemDbContext());
+        return typeId is 1 or 2 ? unit.AccountingRepository.Get(a => a.TypeId == typeId).ToList() : unit.AccountingRepository.Get().ToList();
     }
 
     public bool Add(int customerId, int amount, int typeId, string description)
     {
-        bool isSuccessful = false;
+        var isSuccessful = false;
         try
         {
             using (UnitOfWork unit = new UnitOfWork(new AccoSystemDbContext()))
@@ -93,8 +85,7 @@ public class TransactionService : ITransactionService
 
     public List<Accounting> Search(DateTime fromDate, DateTime toDate)
     {
-        List<Accounting> result = new List<Accounting>();
-        result = Get();
+        var result = Get();
         result = result.Where(r => r.DateTime >= fromDate && r.DateTime <= toDate).ToList();
 
         return result;
