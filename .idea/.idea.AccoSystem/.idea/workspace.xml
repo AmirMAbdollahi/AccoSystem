@@ -8,16 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ed527e4-950e-48a2-8a4a-0fc372a9c5fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AccoSystem/Commands/CommandFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/Command.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/CustomerCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/CustomerCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/TransactionCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/TransactionCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Services/CustomerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Services/CustomerService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Services/TransactionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Services/TransactionService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/AccoSystem.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/apphost.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +140,8 @@
       <workItem from="1717024224026" duration="2738000" />
       <workItem from="1717151417781" duration="4316000" />
       <workItem from="1717175316203" duration="2270000" />
-      <workItem from="1717261212156" duration="7449000" />
+      <workItem from="1717261212156" duration="8828000" />
+      <workItem from="1717342494932" duration="1284000" />
     </task>
     <servers />
   </component>

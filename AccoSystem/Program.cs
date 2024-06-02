@@ -1,4 +1,10 @@
 ﻿using AccoSystem.Commands;
 
-var input=Console.ReadLine();
-CommandFactory.GetCommand(input);
+
+while (true)
+{
+    Console.WriteLine("Please enter what you need...");
+    var input=Console.ReadLine();
+    CommandFactory.GetCommand(input);
+    Console.WriteLine();
+}

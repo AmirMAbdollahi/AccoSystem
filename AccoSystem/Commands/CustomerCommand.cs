@@ -26,8 +26,8 @@ public class CustomerCommand : Command
             a => a.Accountings);
         var fullName = addDictionary["FullName"];
         var mobile = addDictionary["Mobile"];
-        var addrese = addDictionary["addrese"];
-        var email = addDictionary["email"];
+        var addrese = addDictionary["Addrese"];
+        var email = addDictionary["Email"];
         var customer = _customerService.Add(fullName, mobile, addrese, email);
         ShowResultMessage(customer);
     }
@@ -40,8 +40,8 @@ public class CustomerCommand : Command
             a => a.Accountings);
         var fullName = editDictionary["FullName"];
         var mobile = editDictionary["Mobile"];
-        var addrese = editDictionary["addrese"];
-        var email = editDictionary["email"];
+        var addrese = editDictionary["Addrese"];
+        var email = editDictionary["Email"];
         var customer = _customerService.Edit(id, fullName, mobile, addrese, email);
         ShowResultMessage(customer);
     }
