@@ -1,9 +1,10 @@
 using AccoSystem.DataLayer.Repositories;
 using AccoSystem.DataLayer.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace AccoSystem.DataLayer.Context;
 
-public class UnitOfWork:IDisposable
+public class UnitOfWork : IDisposable
 {
     private AccoSystemDbContext _context;
 
@@ -22,6 +23,7 @@ public class UnitOfWork:IDisposable
             {
                 _customerRepository = new CustomerRepository(_context);
             }
+
             return _customerRepository;
         }
     }
@@ -30,9 +32,13 @@ public class UnitOfWork:IDisposable
 
     public AllRepo<Accounting> AccountingRepository
     {
-        get {
-            if (_accountingRepository==null)
+        get
+        {
+            if (_accountingRepository == null)
             {
+                // var accountings = _context.Accountings
+                //     .Include(a => a.Customer)
+                //     .Include(a => a.Type).ToList();
                 _accountingRepository = new AllRepo<Accounting>(_context);
             }
 
@@ -41,11 +47,11 @@ public class UnitOfWork:IDisposable
     }
 
 
-
     public void Save()
     {
         _context.SaveChanges();
     }
+
     public void Dispose()
     {
         _context.Dispose();

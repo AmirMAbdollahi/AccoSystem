@@ -1,4 +1,5 @@
 using System.Reflection;
+using AccoSystem.DataLayer;
 using AccoSystem.Services;
 
 namespace AccoSystem.Commands;
@@ -11,7 +12,7 @@ public static class CommandFactory
     static CommandFactory()
     {
         RegisterCommand("customer", () => new CustomerCommand(new CustomerService()));
-        RegisterCommand("transaction", () => new TransactionCommand(new TransactionService()));
+        RegisterCommand("transaction", () => new TransactionCommand(new TransactionService(),new AccoSystemDbContext()));
     }
 
     public static void RegisterCommand(string commandType, Func<Command> constructor)
@@ -44,9 +45,9 @@ public static class CommandFactory
 
     public static void GetCommand(string command)
     {
-        string[] commandWords = command.Split(' ');
-        string firstUserCommand = commandWords[0];
-        string secondUserCommand = commandWords[1];
+        var commandWords = command.Split(' ');
+        var firstUserCommand = commandWords[0];
+        var secondUserCommand = commandWords[1];
 
         var classNameList = GetCommandClassNames();
 

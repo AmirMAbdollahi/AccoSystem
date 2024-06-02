@@ -7,21 +7,18 @@ namespace AccoSystem.Commands;
 public class TransactionCommand : Command
 {
     private ITransactionService _transactionService;
+    private readonly AccoSystemDbContext _context;
 
-    public TransactionCommand(TransactionService transactionService)
+    public TransactionCommand(ITransactionService transactionService,AccoSystemDbContext context)
     {
         _transactionService = transactionService;
+        _context = context;
     }
 
-    public void Get(int typeId = 0)
+    public override void Get(int typeId = 0)
     {
         var accounting = _transactionService.Get(typeId);
         Print(accounting);
-    }
-
-    public override void Get()
-    {
-        throw new NotImplementedException();
     }
 
     public override void Add()
@@ -83,6 +80,9 @@ public class TransactionCommand : Command
     {
         foreach (var accounting in accountings)
         {
+            _context.Entry(accounting).Reference(a => a.Customer).Load();
+            _context.Entry(accounting).Reference(a => a.Type).Load();
+
             Console.WriteLine(accounting.Customer.FullName +
                               " - " +
                               accounting.Amount +
@@ -93,7 +93,7 @@ public class TransactionCommand : Command
         }
     }
 
-    private void PrintById(List<Accounting> accountings)
+    private static void PrintById(List<Accounting> accountings)
     {
         foreach (var accounting in accountings)
         {
@@ -121,7 +121,6 @@ public class TransactionCommand : Command
     private int GetOneCustomerFromIds(int typeId = 0)
     {
         Console.WriteLine("Which customer do you want ? Please enter its ID");
-        var id = Convert.ToInt32(Console.ReadLine());
         List<Accounting> accountings = _transactionService.Get(typeId);
         foreach (var accounting in accountings)
         {
@@ -129,6 +128,7 @@ public class TransactionCommand : Command
                               " - "
                               + accounting.Customer.FullName);
         }
+        var id = Convert.ToInt32(Console.ReadLine());
 
         return id;
     }
@@ -155,7 +155,7 @@ public class TransactionCommand : Command
         return id;
     }
 
-    private void Result(bool isSuccessful)
+    private static void Result(bool isSuccessful)
     {
         if (isSuccessful)
         {

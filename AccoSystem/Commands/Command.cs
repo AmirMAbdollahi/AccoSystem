@@ -86,7 +86,8 @@ public abstract class Command
     }
     
 
-    public abstract void Get();
+    public abstract void Get(int typeId=0);
+    
     public abstract void Add();
 
     public abstract void Edit();

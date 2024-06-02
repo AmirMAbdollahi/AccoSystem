@@ -1,5 +1,4 @@
 using AccoSystem.DataLayer;
-using AccoSystem.DataLayer.Context;
 using AccoSystem.Services;
 
 namespace AccoSystem.Commands;
@@ -12,8 +11,8 @@ public class CustomerCommand : Command
     {
         _customerService = customerService;
     }
-    
-    public override void Get()
+
+    public override void Get(int typeId = 0)
     {
         var customers = _customerService.Get();
         Print(customers);
@@ -61,7 +60,7 @@ public class CustomerCommand : Command
         Print(customers);
     }
 
-    private void Print(List<Customer> customers)
+    private static void Print(List<Customer> customers)
     {
         foreach (var customer in customers)
         {
@@ -75,7 +74,7 @@ public class CustomerCommand : Command
         }
     }
 
-    private void PrintById(List<Customer> customers)
+    private static void PrintById(List<Customer> customers)
     {
         foreach (var customer in customers)
         {
@@ -100,7 +99,7 @@ public class CustomerCommand : Command
         return id;
     }
 
-    private void ShowResultMessage(bool isSuccessful)
+    private static void ShowResultMessage(bool isSuccessful)
     {
         if (isSuccessful)
         {
