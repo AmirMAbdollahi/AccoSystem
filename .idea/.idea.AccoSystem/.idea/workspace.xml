@@ -9,12 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0ed527e4-950e-48a2-8a4a-0fc372a9c5fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/Command.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/CommandFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/CommandFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/CustomerCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/CustomerCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/TransactionCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/TransactionCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Context/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Context/UnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Services/ITransactionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Services/ITransactionService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/apphost.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -144,7 +139,8 @@
       <workItem from="1717175316203" duration="2270000" />
       <workItem from="1717261212156" duration="8828000" />
       <workItem from="1717342494932" duration="4568000" />
-      <workItem from="1717367877477" duration="3712000" />
+      <workItem from="1717367877477" duration="4728000" />
+      <workItem from="1717598218253" duration="615000" />
     </task>
     <servers />
   </component>
@@ -157,32 +153,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AccoSystem/Commands/CommandFactory.cs</url>
-          <line>60</line>
-          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Commands\CommandFactory.cs" initialLine="59" containingFunctionPresentation="Method 'GetCommand'">
-            <startOffsets>
-              <option value="1839" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1860" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AccoSystem/Commands/CommandFactory.cs</url>
-          <line>54</line>
-          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Commands\CommandFactory.cs" initialLine="53" containingFunctionPresentation="Method 'GetCommand'">
-            <startOffsets>
-              <option value="1578" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1821" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AccoSystem/Commands/CommandFactory.cs</url>
           <line>24</line>
@@ -209,50 +179,12 @@
           </properties>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AccoSystem/Commands/TransactionCommand.cs</url>
-          <line>19</line>
-          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Commands\TransactionCommand.cs" initialLine="17" containingFunctionPresentation="Method 'Get'">
-            <startOffsets>
-              <option value="511" />
-            </startOffsets>
-            <endOffsets>
-              <option value="560" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AccoSystem/Commands/TransactionCommand.cs</url>
-          <line>80</line>
-          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Commands\TransactionCommand.cs" initialLine="78" containingFunctionPresentation="Method 'Print'">
-            <startOffsets>
-              <option value="2600" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2639" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AccoSystem/Commands/TransactionCommand.cs</url>
-          <line>85</line>
-          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Commands\TransactionCommand.cs" initialLine="80" containingFunctionPresentation="Method 'Print'">
-            <startOffsets>
-              <option value="2807" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3132" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#System.Reflection.PropertyAttributes" memberName="value__" />
+        <PinnedItemInfo parentTag="Type#AccoSystem.DataLayer.Accounting" memberName="Customer" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

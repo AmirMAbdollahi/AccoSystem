@@ -60,7 +60,7 @@ public static class CommandFactory
         
         if (matchPrefixFound)
         {
-            Command commandClass = CreateCommand(commandPrefix);
+            var commandClass = CreateCommand(commandPrefix);
             switch (secondUserCommand.ToLower())
             {
                 case "list":
@@ -77,6 +77,12 @@ public static class CommandFactory
                     break;
                 case "search":
                     commandClass.Search();
+                    break;
+                case "income":
+                    commandClass.Get(1);
+                    break;
+                case "cost":
+                    commandClass.Get(2);
                     break;
                 default:
                     Help();
@@ -104,6 +110,8 @@ public static class CommandFactory
         Console.WriteLine("transaction edit => You can change the transaction's amount and description by entering the transaction's ID and save it in the database.");
         Console.WriteLine("transaction delete => You can delete a transaction from the database by entering the ID.");
         Console.WriteLine("transaction search => You can find transactions between them by entering two dates.");
+        Console.WriteLine("transaction income => It gives you a list of all the income from the database.");
+        Console.WriteLine("transaction cost => It gives you a list of all the cost from the database.");
         Console.WriteLine("-------------------------------------------------------------------------");
         Console.WriteLine("Enjoy my app console");
         Console.WriteLine("--------------------");
