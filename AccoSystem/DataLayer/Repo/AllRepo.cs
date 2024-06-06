@@ -18,6 +18,9 @@ public class AllRepo<TEntity> where TEntity:class
     public virtual IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>>? where=null)
     {
         IQueryable<TEntity> query = _dbSet;
+        // var accountings = _context.Accountings.Include(a => a.Customer)
+        //     .Include(a => a.Type)
+        //     .ToList();
 
         if (where != null)
         {

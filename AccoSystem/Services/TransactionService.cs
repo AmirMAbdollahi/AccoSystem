@@ -1,5 +1,6 @@
 using AccoSystem.DataLayer;
 using AccoSystem.DataLayer.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace AccoSystem.Services;
 
@@ -7,10 +8,14 @@ public class TransactionService : ITransactionService
 {
     public List<Accounting> Get(int typeId = 0)
     {
-        using var unit = new UnitOfWork(new AccoSystemDbContext());
+        var context = new AccoSystemDbContext();
+        using var unit = new UnitOfWork(context);
+        var accountings = context.Accountings.Include(a => a.Customer)
+            .Include(a => a.Type)
+            .ToList();
         return typeId is 1 or 2
-            ? unit.AccountingRepository.Get(a => a.TypeId == typeId).ToList()
-            : unit.AccountingRepository.Get().ToList();
+            ? accountings.Where(a => a.TypeId == typeId).ToList()
+            : accountings;
     }
 
     public bool Add(int customerId, int amount, int typeId, string description)

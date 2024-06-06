@@ -7,12 +7,10 @@ namespace AccoSystem.Commands;
 public class TransactionCommand : Command
 {
     private ITransactionService _transactionService;
-    private readonly AccoSystemDbContext _context;
 
-    public TransactionCommand(ITransactionService transactionService,AccoSystemDbContext context)
+    public TransactionCommand(ITransactionService transactionService)
     {
         _transactionService = transactionService;
-        _context = context;
     }
 
     public override void Get(int typeId = 0)
@@ -80,9 +78,6 @@ public class TransactionCommand : Command
     {
         foreach (var accounting in accountings)
         {
-            _context.Entry(accounting).Reference(a => a.Customer).Load();
-            _context.Entry(accounting).Reference(a => a.Type).Load();
-
             Console.WriteLine(accounting.Customer.FullName +
                               " - " +
                               accounting.Amount +
@@ -121,13 +116,16 @@ public class TransactionCommand : Command
     private int GetOneCustomerFromIds(int typeId = 0)
     {
         Console.WriteLine("Which customer do you want ? Please enter its ID");
-        List<Accounting> accountings = _transactionService.Get(typeId);
-        foreach (var accounting in accountings)
+        var accountings = _transactionService.Get(typeId);
+        var groupedAccountings = accountings
+            .GroupBy(a => a.CustomerId)
+            .ToList();
+        foreach (var group in groupedAccountings)
         {
-            Console.WriteLine(accounting.Customer.CustomerId +
-                              " - "
-                              + accounting.Customer.FullName);
+            var representativeAccounting = group.First(); // Take the first accounting entry from the group
+            Console.WriteLine($"{representativeAccounting.CustomerId} - {representativeAccounting.Customer.FullName}");
         }
+
         var id = Convert.ToInt32(Console.ReadLine());
 
         return id;

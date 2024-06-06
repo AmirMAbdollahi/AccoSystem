@@ -9,7 +9,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0ed527e4-950e-48a2-8a4a-0fc372a9c5fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/Command.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/CommandFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/CommandFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/TransactionCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/TransactionCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Repo/AllRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Repo/AllRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Services/TransactionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Services/TransactionService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/apphost.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,29 +57,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.AccoSystem.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.AccoSystem.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.General&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Raahbar\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Raahbar\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\Raahbar\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Raahbar\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Raahbar\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Raahbar\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="AccoSystem" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -140,7 +144,8 @@
       <workItem from="1717261212156" duration="8828000" />
       <workItem from="1717342494932" duration="4568000" />
       <workItem from="1717367877477" duration="4728000" />
-      <workItem from="1717598218253" duration="615000" />
+      <workItem from="1717598218253" duration="5337000" />
+      <workItem from="1717658090013" duration="4317000" />
     </task>
     <servers />
   </component>
@@ -151,36 +156,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AccoSystem/Commands/CommandFactory.cs</url>
-          <line>24</line>
-          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Commands\CommandFactory.cs" initialLine="23" containingFunctionPresentation="Method 'CreateCommand'">
-            <startOffsets>
-              <option value="724" />
-            </startOffsets>
-            <endOffsets>
-              <option value="800" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AccoSystem/Commands/CommandFactory.cs</url>
-          <line>14</line>
-          <properties documentPath="C:\Users\Raahbar\RiderProjects\AccoSystem\AccoSystem\Commands\CommandFactory.cs" initialLine="13" containingFunctionPresentation="Constructor 'CommandFactory'">
-            <startOffsets>
-              <option value="368" />
-            </startOffsets>
-            <endOffsets>
-              <option value="481" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#System.Reflection.PropertyAttributes" memberName="value__" />

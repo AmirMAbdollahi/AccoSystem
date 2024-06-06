@@ -12,7 +12,7 @@ public static class CommandFactory
     static CommandFactory()
     {
         RegisterCommand("customer", () => new CustomerCommand(new CustomerService()));
-        RegisterCommand("transaction", () => new TransactionCommand(new TransactionService(),new AccoSystemDbContext()));
+        RegisterCommand("transaction", () => new TransactionCommand(new TransactionService()));
     }
 
     public static void RegisterCommand(string commandType, Func<Command> constructor)

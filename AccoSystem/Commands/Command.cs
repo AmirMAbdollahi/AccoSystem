@@ -48,44 +48,6 @@ public abstract class Command
 
         return customerDictionary;
     }
-
-    List<string> GetCommandClassNames()
-    {
-        var assembly = Assembly.GetAssembly(typeof(Command));
-
-        var types = assembly!.GetTypes();
-
-        var classNameList = types
-            .Where(t => t.IsSubclassOf(typeof(Command)))
-            .Select(t => t.Name)
-            .ToList();
-
-        return classNameList;
-    }
-
-    public void CommandAnalysis(List<string> classNameList, string command)
-    {
-        string[] commandWords = command.Split(' ');
-        string firstUserCommand = commandWords[0];
-        string secondUserCommand = commandWords[1];
-
-        bool matchPrefixFound = classNameList.Exists(commandClass => 
-        {
-            string commandPrefix = commandClass.Replace("Command", "");
-            return commandPrefix.Equals(firstUserCommand, StringComparison.OrdinalIgnoreCase);
-        });
-        if (matchPrefixFound)
-        {
-            // call with subClass
-        }
-        else
-        {
-            // call help method
-        }
-
-    }
-    
-
     public abstract void Get(int typeId=0);
     
     public abstract void Add();
