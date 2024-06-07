@@ -12,7 +12,7 @@ public class CustomerCommand : Command
         _customerService = customerService;
     }
 
-    public override void Get(int typeId = 0)
+    public override void Get()
     {
         var customers = _customerService.Get();
         Print(customers);
@@ -56,7 +56,7 @@ public class CustomerCommand : Command
     {
         Console.WriteLine("Do you want to search customer? Please enter its Name");
         var query = Console.ReadLine();
-        var customers = _customerService.Search(query);
+        var customers = _customerService.Get(query);
         Print(customers);
     }
 
@@ -92,7 +92,7 @@ public class CustomerCommand : Command
 
     private int GetId()
     {
-        var customers = _customerService.Get();
+        var customers = _customerService.Get(null);
         PrintById(customers);
         Console.WriteLine("Which customer do you want ? Please enter its ID");
         var id = Convert.ToInt32(Console.ReadLine());

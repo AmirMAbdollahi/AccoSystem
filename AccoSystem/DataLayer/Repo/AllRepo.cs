@@ -3,24 +3,41 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AccoSystem.DataLayer.Services;
 
-public class AllRepo<TEntity> where TEntity:class
+public class AllRepo<TEntity> where TEntity : class
 {
-
     private AccoSystemDbContext _context;
     private DbSet<TEntity> _dbSet;
-    
+
     public AllRepo(AccoSystemDbContext context)
     {
         _context = context;
         _dbSet = _context.Set<TEntity>();
     }
 
-    public virtual IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>>? where=null)
+    // public virtual IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>>? where = null)
+    // {
+    //     IQueryable<TEntity> query = _dbSet;
+    //
+    //     if (where != null)
+    //     {
+    //         query = query.Where(where);
+    //     }
+    //
+    //     return query.ToList();
+    // }
+
+    public IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>>? where = null,
+        List<Expression<Func<TEntity, object>>>? includeExpressions = null)
     {
-        IQueryable<TEntity> query = _dbSet;
-        // var accountings = _context.Accountings.Include(a => a.Customer)
-        //     .Include(a => a.Type)
-        //     .ToList();
+        IQueryable<TEntity> query = _dbSet.AsQueryable();
+
+        if (includeExpressions != null && includeExpressions.Any())
+        {
+            foreach (var includeExpression in includeExpressions)
+            {
+                query = query.Include(includeExpression);
+            }
+        }
 
         if (where != null)
         {
@@ -29,6 +46,7 @@ public class AllRepo<TEntity> where TEntity:class
 
         return query.ToList();
     }
+
     public virtual TEntity GetById(object id)
     {
         return _dbSet.Find(id);
@@ -41,7 +59,7 @@ public class AllRepo<TEntity> where TEntity:class
             _dbSet.Add(entity);
             return true;
         }
-        catch 
+        catch
         {
             return false;
         }
@@ -55,11 +73,10 @@ public class AllRepo<TEntity> where TEntity:class
             _context.Entry(entity).State = EntityState.Modified;
             return true;
         }
-        catch 
+        catch
         {
             return false;
         }
-        
     }
 
     public virtual bool Delete(TEntity entity)
@@ -70,10 +87,11 @@ public class AllRepo<TEntity> where TEntity:class
             {
                 _dbSet.Attach(entity);
             }
+
             _dbSet.Remove(entity);
             return true;
         }
-        catch 
+        catch
         {
             return false;
         }
@@ -86,10 +104,9 @@ public class AllRepo<TEntity> where TEntity:class
             Delete(GetById(id));
             return true;
         }
-        catch 
+        catch
         {
             return false;
         }
     }
-    
 }

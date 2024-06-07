@@ -1,14 +1,10 @@
-using System.Dynamic;
 using System.Linq.Expressions;
-using System.Reflection;
-using System.Text;
-using AccoSystem.DataLayer;
 
 namespace AccoSystem.Commands;
 
 public abstract class Command
 {
-    public Dictionary<string, string> GetPropertyValueDictionary<T>(
+    protected Dictionary<string, string> GetPropertyValueDictionary<T>(
         params Expression<Func<T, object>>[] ignoredProperties)
     {
         var type = typeof(T);
@@ -48,7 +44,9 @@ public abstract class Command
 
         return customerDictionary;
     }
-    public abstract void Get(int typeId=0);
+    
+    //change names
+    public abstract void Get();
     
     public abstract void Add();
 

@@ -1,6 +1,4 @@
-using AccoSystem.DataLayer.Repositories;
 using AccoSystem.DataLayer.Services;
-using Microsoft.EntityFrameworkCore;
 
 namespace AccoSystem.DataLayer.Context;
 
@@ -13,15 +11,15 @@ public class UnitOfWork : IDisposable
         _context = context;
     }
 
-    private ICustomerRepository _customerRepository;
+    private AllRepo<Customer> _customerRepository;
 
-    public ICustomerRepository CustomerRepository
+    public AllRepo<Customer> CustomerRepository
     {
         get
         {
             if (_customerRepository == null)
             {
-                _customerRepository = new CustomerRepository(_context);
+                _customerRepository = new AllRepo<Customer>(_context);
             }
 
             return _customerRepository;

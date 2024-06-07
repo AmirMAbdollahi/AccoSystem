@@ -13,9 +13,9 @@ public class TransactionCommand : Command
         _transactionService = transactionService;
     }
 
-    public override void Get(int typeId = 0)
+    public override void Get()
     {
-        var accounting = _transactionService.Get(typeId);
+        var accounting = _transactionService.Get();
         Print(accounting);
     }
 

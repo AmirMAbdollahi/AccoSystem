@@ -11,8 +11,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/Command.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/CommandFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/CommandFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/CustomerCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/CustomerCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/TransactionCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/TransactionCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Context/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Context/UnitOfWork.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Repo/AllRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Repo/AllRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Repo/CustomerRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Repositories/ICustomerRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Services/CustomerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Services/CustomerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Services/ICustomerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Services/ICustomerService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Services/TransactionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Services/TransactionService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/apphost.exe" afterDir="false" />
     </list>
@@ -145,7 +151,10 @@
       <workItem from="1717342494932" duration="4568000" />
       <workItem from="1717367877477" duration="4728000" />
       <workItem from="1717598218253" duration="5337000" />
-      <workItem from="1717658090013" duration="4317000" />
+      <workItem from="1717658090013" duration="8104000" />
+      <workItem from="1717672507011" duration="2862000" />
+      <workItem from="1717687791052" duration="2598000" />
+      <workItem from="1717773111650" duration="1086000" />
     </task>
     <servers />
   </component>

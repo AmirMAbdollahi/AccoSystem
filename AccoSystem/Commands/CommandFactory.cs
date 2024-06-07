@@ -1,5 +1,4 @@
 using System.Reflection;
-using AccoSystem.DataLayer;
 using AccoSystem.Services;
 
 namespace AccoSystem.Commands;
@@ -15,12 +14,12 @@ public static class CommandFactory
         RegisterCommand("transaction", () => new TransactionCommand(new TransactionService()));
     }
 
-    public static void RegisterCommand(string commandType, Func<Command> constructor)
+    private static void RegisterCommand(string commandType, Func<Command> constructor)
     {
         CommandRegistry[commandType.ToLower()] = constructor;
     }
 
-    public static Command CreateCommand(string commandType)
+    private static Command CreateCommand(string commandType)
     {
         if (CommandRegistry.TryGetValue(commandType.ToLower(), out var constructor))
         {
@@ -79,10 +78,10 @@ public static class CommandFactory
                     commandClass.Search();
                     break;
                 case "income":
-                    commandClass.Get(1);
+                    commandClass.Get();
                     break;
                 case "cost":
-                    commandClass.Get(2);
+                    commandClass.Get();
                     break;
                 default:
                     Help();
@@ -95,7 +94,6 @@ public static class CommandFactory
         }
 
     }
-
     private static void Help()
     {
         Console.WriteLine("-------------------------------------------------------------------------");
