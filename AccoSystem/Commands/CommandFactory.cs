@@ -111,7 +111,7 @@ public static class CommandFactory
         Console.WriteLine("transaction income => It gives you a list of all the income from the database.");
         Console.WriteLine("transaction cost => It gives you a list of all the cost from the database.");
         Console.WriteLine("-------------------------------------------------------------------------");
-        Console.WriteLine("Enjoy my app console");
+        Console.WriteLine("Enjoy my console app");
         Console.WriteLine("--------------------");
     }
     

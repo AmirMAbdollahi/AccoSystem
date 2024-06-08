@@ -9,7 +9,7 @@ public partial class Accounting
 
     public int CustomerId { get; set; }
 
-    public int TypeId { get; set; }
+    public TransactionType TransactionType { get; set; }
 
     public int Amount { get; set; }
 
@@ -18,6 +18,4 @@ public partial class Accounting
     public DateTime DateTime { get; set; }
 
     public virtual Customer Customer { get; set; } = null!;
-
-    public virtual AccountingType Type { get; set; } = null!;
 }

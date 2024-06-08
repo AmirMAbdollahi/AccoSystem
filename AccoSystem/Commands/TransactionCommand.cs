@@ -27,13 +27,12 @@ public class TransactionCommand : Command
             a => a.CustomerId,
             a => a.DateTime,
             a => a.Customer,
-            a => a.Type,
-            a => a.TypeId);
+            a => a.TransactionType);
         var amount = Convert.ToInt32(addDictionary["Amount"]);
         var description = addDictionary["Description"];
-        var typeId = GetType();
+        var type = GetType();
 
-        var accounting = _transactionService.Add(customerId, amount, typeId, description);
+        var accounting = _transactionService.Add(customerId, amount, type, description);
         Result(accounting);
     }
 
@@ -45,13 +44,12 @@ public class TransactionCommand : Command
             a => a.CustomerId,
             a => a.DateTime,
             a => a.Customer,
-            a => a.Type,
-            a => a.TypeId);
+            a => a.TransactionType);
         var amount = Convert.ToInt32(editDictionary["Amount"]);
         var description = editDictionary["Description"];
-        var typeId = GetType();
+        var type = GetType();
         var customerId = GetCustomer(id);
-        var accounting = _transactionService.Edit(id, customerId, amount, typeId, description);
+        var accounting = _transactionService.Edit(id, customerId, amount, type, description);
         Result(accounting);
     }
 
@@ -82,7 +80,7 @@ public class TransactionCommand : Command
                               " - " +
                               accounting.Amount +
                               " - " +
-                              accounting.Type.TypeTitle +
+                              accounting.TransactionType +
                               " - " +
                               accounting.Description);
         }
@@ -98,25 +96,25 @@ public class TransactionCommand : Command
                               " - " +
                               accounting.Amount +
                               " - " +
-                              accounting.Type.TypeTitle +
+                              accounting.TransactionType +
                               " - " +
                               accounting.Description);
         }
     }
 
-    private int GetId(int typeId = 0)
+    private int GetId(TransactionType type = default)
     {
-        var tranactions = _transactionService.Get(typeId);
+        var tranactions = _transactionService.Get(type);
         PrintById(tranactions);
         Console.WriteLine("Which transaction do you want ? Please enter its ID");
         var id = Convert.ToInt32(Console.ReadLine());
         return id;
     }
 
-    private int GetOneCustomerFromIds(int typeId = 0)
+    private int GetOneCustomerFromIds(TransactionType type = default)
     {
         Console.WriteLine("Which customer do you want ? Please enter its ID");
-        var accountings = _transactionService.Get(typeId);
+        var accountings = _transactionService.Get(type);
         var groupedAccountings = accountings
             .GroupBy(a => a.CustomerId)
             .ToList();
@@ -145,12 +143,12 @@ public class TransactionCommand : Command
         return -1;
     }
 
-    private int GetType()
+    private TransactionType GetType()
     {
         Console.WriteLine("1 => income");
         Console.WriteLine("2 => const");
         var id = Convert.ToInt32(Console.ReadLine());
-        return id;
+        return Enum.Parse<TransactionType>(id.ToString());
     }
 
     private static void Result(bool isSuccessful)

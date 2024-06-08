@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace AccoSystem.DataLayer;
+﻿namespace AccoSystem.DataLayer;
 
 public partial class AccountingType
 {

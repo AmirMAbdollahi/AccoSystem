@@ -8,19 +8,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ed527e4-950e-48a2-8a4a-0fc372a9c5fa" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/TransactionType.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AccoSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/Command.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/CommandFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/CommandFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/CustomerCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/CustomerCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Commands/TransactionCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Commands/TransactionCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Context/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Context/UnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Repo/AllRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Repo/AllRepo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Repo/CustomerRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Repositories/ICustomerRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Services/CustomerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Services/CustomerService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccoSystem/Services/ICustomerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Services/ICustomerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/AccoSystemDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/AccoSystemDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/Accounting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/Accounting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/DataLayer/AccountingType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/DataLayer/AccountingType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/Services/ITransactionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Services/ITransactionService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/Services/TransactionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/Services/TransactionService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/AccoSystem.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/AccoSystem.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/AccoSystem.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/AccoSystem.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/Debug/net8.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccoSystem/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/AccoSystem/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +40,7 @@
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/087e15321bb712ef6fe8b0ba6f8bd12facf92629/src/libraries/System.Private.CoreLib/src/System/IO/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/2d7eea252964e69be94cb9c847b371b23e4dd470/src/libraries/System.Collections.Immutable/src/System/Collections/Frozen/FrozenDictionary.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/2d7eea252964e69be94cb9c847b371b23e4dd470/src/libraries/System.Private.CoreLib/src/System/Collections/Generic/List.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/3b8b000a0e115700b18265d8ec8c6307056dc94d/src/coreclr/System.Private.CoreLib/src/System/Object.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5147b10c5a8c4522b56fba0a889139cfc8f908/9c/fda0e39e/Type.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de3edec1170e48a0a2478d8743508635c8e910/4f/6950180b/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AccoSystem/Commands/Command.cs" root0="FORCE_HIGHLIGHTING" />
@@ -51,6 +54,7 @@
     <setting file="file://$PROJECT_DIR$/AccoSystem/Services/TransactionService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../TopLearn.Com_CsharpAdvanced_06/Accounting/Accounting.DataLayer/Services/CustomerRepository.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -154,12 +158,26 @@
       <workItem from="1717658090013" duration="8104000" />
       <workItem from="1717672507011" duration="2862000" />
       <workItem from="1717687791052" duration="2598000" />
-      <workItem from="1717773111650" duration="1086000" />
+      <workItem from="1717773111650" duration="4697000" />
+      <workItem from="1717830464889" duration="3686000" />
+      <workItem from="1717841220781" duration="3621000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

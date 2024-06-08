@@ -4,13 +4,13 @@ namespace AccoSystem.Services;
 
 public interface ITransactionService
 {
-    public List<Accounting> Get(int typeId = 0);
+    public List<Accounting> Get(TransactionType type = default);
 
 
-    public bool Add(int customerId, int amount, int typeId, string description);
+    public bool Add(int customerId, int amount, TransactionType typeId, string description);
 
 
-    public bool Edit(int id, int customerId, int amount, int typeId, string description);
+    public bool Edit(int id, int customerId, int amount, TransactionType typeId, string description);
 
     public bool Delete(int id);
 

@@ -17,8 +17,6 @@ public partial class AccoSystemDbContext : DbContext
 
     public virtual DbSet<Accounting> Accountings { get; set; }
 
-    public virtual DbSet<AccountingType> AccountingTypes { get; set; }
-
     public virtual DbSet<Customer> Customers { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -39,29 +37,11 @@ public partial class AccoSystemDbContext : DbContext
             entity.Property(e => e.Description)
                 .HasMaxLength(800)
                 .IsUnicode(false);
-            entity.Property(e => e.TypeId).HasColumnName("TypeID");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Accountings)
                 .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("Accountion_Customers_FK");
-
-            entity.HasOne(d => d.Type).WithMany(p => p.Accountings)
-                .HasForeignKey(d => d.TypeId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Accountion_AccountionTypes_FK");
-        });
-
-        modelBuilder.Entity<AccountingType>(entity =>
-        {
-            entity.HasKey(e => e.TypeId).HasName("AccountionTypes_PK");
-
-            entity.Property(e => e.TypeId)
-                .ValueGeneratedNever()
-                .HasColumnName("TypeID");
-            entity.Property(e => e.TypeTitle)
-                .HasMaxLength(150)
-                .IsUnicode(false);
         });
 
         modelBuilder.Entity<Customer>(entity =>

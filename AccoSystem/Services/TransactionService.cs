@@ -1,33 +1,30 @@
 using System.Linq.Expressions;
 using AccoSystem.DataLayer;
 using AccoSystem.DataLayer.Context;
-using Microsoft.EntityFrameworkCore;
 
 namespace AccoSystem.Services;
 
 public class TransactionService : ITransactionService
 {
-    public List<Accounting> Get(int typeId = 0)
+    public List<Accounting> Get(TransactionType type = default)
     {
         using var unit = new UnitOfWork(new AccoSystemDbContext());
-        //var accountings = unit.AccountingRepository.Get(a => a.TypeId == typeId).ToList();
-        return typeId is 1 or 2
-            ? unit.AccountingRepository.Get(a => a.TypeId == typeId).ToList()
-            : unit.AccountingRepository.Get(null,new List<Expression<Func<Accounting, object>>>()
+        return type is TransactionType.Cost or TransactionType.Income
+            ? unit.AccountingRepository.Get(a => a.TransactionType == type).ToList()
+            : unit.AccountingRepository.Get(null, new List<Expression<Func<Accounting, object>>>()
             {
-                x=>x.Customer,
-                a=>a.Type
+                x => x.Customer
             }).ToList();
     }
 
-    public bool Add(int customerId, int amount, int typeId, string description)
+    public bool Add(int customerId, int amount, TransactionType type, string description)
     {
         using var unit = new UnitOfWork(new AccoSystemDbContext());
         var isSuccessful = unit.AccountingRepository.Insert(new Accounting()
         {
             CustomerId = customerId,
             Amount = amount,
-            TypeId = typeId,
+            TransactionType = type,
             DateTime = DateTime.Now,
             Description = description,
         });
@@ -36,7 +33,7 @@ public class TransactionService : ITransactionService
         return isSuccessful;
     }
 
-    public bool Edit(int id, int customerId, int amount, int typeId, string description)
+    public bool Edit(int id, int customerId, int amount, TransactionType type, string description)
     {
         using var unit = new UnitOfWork(new AccoSystemDbContext());
         var isSuccessful = unit.AccountingRepository.Update(new Accounting()
@@ -46,7 +43,7 @@ public class TransactionService : ITransactionService
             Amount = amount,
             Description = description,
             CustomerId = customerId,
-            TypeId = typeId
+            TransactionType = type
         });
         unit.Save();
 
@@ -58,7 +55,7 @@ public class TransactionService : ITransactionService
         using var unit = new UnitOfWork(new AccoSystemDbContext());
         var isSuccessful = unit.AccountingRepository.Delete(id);
         unit.Save();
-        
+
         return isSuccessful;
     }
 
